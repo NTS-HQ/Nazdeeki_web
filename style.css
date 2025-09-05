@@ -3,6 +3,10 @@ body {
     font-weight: 400;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Inside your global CSS or a <style> tag */
 .text-shadow-white {
   text-shadow: 0px 0px 1px white;
