@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazdeeki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="bg-orange-50 text-black">
+
+    <!--Desktop & Tablet Navbar -->
+    <nav class="hidden md:block sticky top-0 backdrop-blur-sm bg-orange/10 z-999">
+        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <img src="./Assets/nazdeeki logo.png" alt="Logo" class="w-40 object-contain">
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex space-x-8 text-lg text-gray-600 ">
+                <a href="index.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Home</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Home</span>
+                    </div>
+                </a>
+                <a href="index.html#services" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Services</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Services</span>
+                    </div>
+                </a>
+                <a href="faqandpricing.html#pricing" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Pricing</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Pricing</span>
+                    </div>
+                </a>
+                <a href="faqandpricing.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">FAQ</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">FAQ</span>
+                    </div>
+                </a>
+                <a href="contactus.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Contact</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Contact</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav
+        class="md:hidden w-full mx-auto px-4 py-2  flex items-center justify-between shadow-lg z-50 bg-orange-50 fixed ">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="./Assets/nazdeeki logo.png" alt="Logo" class=" w-40 object-contain">
+        </div>
+        <!-- Mobile Hamburger Button (visible on small screens) -->
+        <div class="flex md:hidden">
+            <button id="menu-toggle" class="text-black focus:outline-none">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Panel -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white flex-col items-center justify-center hidden z-40">
+        <div class="absolute top-4 right-4">
+            <!-- Close button (same as icon toggle) -->
+            <button id="close-panel" class="text-black focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-full space-y-8  text-xl font-medium">
+            <a href="index.html" class="hover:text-orange-600">Home</a>
+            <a href="index.html#services" class="hover:text-orange-600">Services</a>
+            <a href="faqandpricing.html#pricing" class="hover:text-orange-600">Pricing</a>
+            <a href="faqandpricing.html" class="hover:text-orange-600">FAQ</a>
+            <a href="contactus.html" class="hover:text-orange-600">Contact</a>
+
+            <hr class="w-2/3 border-t mt-4 border-gray-300" />
+
+            <p class="text-center text-base text-gray-600 px-4 italic">
+                “Good food is the foundation of genuine happiness.” - Auguste Escoffier
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="px-8 md:px-16 pt-32 md:pt-16 py-16">
+        <h4 class="text-left text-4xl">Privacy Statement
+            Version 1.0 - [Effective Date]</h4>
+        </p>
+        <ul>
+            <li class="my-2">This Privacy Statement explains how personal information about our users, vendors, restaurant staff,
+                delivery
+                partners, and other individuals using Nazdeeki's services is collected, used, and disclosed by Nazdeeki
+                Technologies Private Limited ("Nazdeeki", "we", "us", or "our").</li>
+            <li class="my-2">This Privacy Statement describes our
+                privacy
+                practices in relation to the use of our websites, mobile applications, vendor and staff portals, and all
+                related
+                services and programs (collectively, the "Services"), as well as your choices regarding use, access,
+                storage,
+                and correction of personal information.</li>
+            <li class="my-2">By signing up for or using our Services, you agree to the collection, usage, storage, and disclosure of
+                information as described in this Privacy Statement. If you do not agree with this policy, please do not
+                use
+                or
+                access Nazdeeki's Services.</li>
+            <li class="my-2">Our Services may contain links to other websites or services; the information practices and/or content
+                of
+                such
+                other websites or services are governed by their respective privacy statements.</li>
+            <li class="my-2">We may update this Privacy Statement from time to time. If we make changes, we will notify you by
+                revising
+                the
+                date at the top of the statement and, where appropriate, provide additional notifications (such as
+                in-app
+                notices or emails). We encourage you to review this Privacy Statement periodically.</li>
+        </ul>
+
+        <ul>
+            <li>
+                <strong>1. Information We Collect</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li><strong>1.1 Information You Provide</strong> <br>
+                        We may collect the following information when you use our Services:
+
+                        Name, phone number, email address, and delivery address
+
+                        Profile information, including photo and preferences
+
+                        Vendor business information, FSSAI license, bank details, and menu data
+
+                        Staff (waiter/delivery) details: name, contact, vehicle information, and government ID
+
+                        Payment details (processed via secure third-party gateways)
+
+                        Feedback, reviews, and communications with us</li>
+                    <li><strong>1.2 Information Collected Automatically</strong> <br>
+                        When you access or use our Services, we automatically collect:
+
+                        Device and usage information (device type, OS, browser, IP address, app version, access times)
+
+                        Location data (with your consent, for service delivery)
+
+                        Cookies and similar technologies for analytics, session management, and user experience
+                        improvement</li>
+                    <li><strong>1.3 Information from Third Parties</strong> <br>
+                        Social login providers (if you sign in via Google, Facebook, etc.)
+
+                        Verification data from government or regulatory sources
+
+                        Information from partners or affiliates to improve service delivery
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>2. How We Use Your Information</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li> We use your information to:
+
+                        Provide, operate, and improve our Services
+
+                        Facilitate order placement, delivery, event bookings, and table reservations
+
+                        Enable vendors to manage menus, orders, staff, and customer engagement
+
+                        Process payments and transactions
+
+                        Communicate with you about your account, orders, and updates
+
+                        Conduct verification and compliance checks for vendors and staff
+
+                        Enhance security, detect and prevent fraud, and enforce our Terms of Service
+
+                        Analyze usage trends and develop new features
+
+                        Comply with legal and regulatory requirements</li>
+
+                </ul>
+            </li>
+            <li>
+                <strong>3. How We Share Your Information</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li>We may share your information:
+
+                        With Service Providers: Payment processors, analytics services, cloud hosting, and customer
+                        support
+                        partners,
+                        only as needed to perform services on our behalf.
+
+                        With Vendors/Restaurants: To fulfill your orders, manage bookings, and provide customer service.
+
+                        With Staff (Waiters/Delivery): To process and deliver your orders and provide in-restaurant
+                        services.
+
+                        With Admin/Verification Teams: For account, staff, and vendor verification and compliance.
+
+                        With Legal Authorities: When required by law, regulation, or to protect our rights and users
+                        safety.
+
+                        In Business Transfers: In case of a merger, acquisition, or sale of assets, your information may
+                        be
+                        transferred
+                        as part of the transaction.
+
+                        We do not sell your personal information to third parties.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>4. Your Choices and Rights</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li>Access & Correction: You may access and update your information via your account settings.
+
+                        Data Portability: You may request a copy of your personal data.
+
+                        Deletion: You may request deletion of your account, subject to legal and operational retention
+                        requirements.
+
+                        Consent Management: You can manage your consent for location sharing, notifications, and
+                        marketing
+                        communications.
+
+                        Opt-Out: You may opt out of marketing communications at any time.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <strong>5. Data Security</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li> We implement reasonable security measures to protect your information, including:
+
+                        Encryption of sensitive data
+
+                        Secure access controls and authentication
+
+                        Regular security audits
+
+                        No method of transmission or storage is 100% secure. We encourage you to use strong passwords
+                        and protect
+                        your
+                        account credentials.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>6. Data Retention</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li>We retain your information as long as your account is active or as needed to provide services,
+                        comply with legal obligations, resolve disputes, and enforce agreements. Data related to staff
+                        and vendors may be retained for compliance and auditing purposes.</li>
+                </ul>
+            </li>
+            <li>
+                <strong> 7. Children's Privacy</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li>Nazdeeki is not intended for children under 18. We do not knowingly collect data from minors. If
+                        we learn
+                        that a minor has provided personal data, we will delete such information promptly.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>8. International Data Transfers</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li>If you access Nazdeeki from outside India, your information may be transferred to, stored, and
+                        processed in
+                        India. By using our Services, you consent to such transfers, subject to applicable law.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>9. Contact Us</strong> <br>
+                <ul class="pl-8 mb-8">
+                    <li>For questions, concerns, or to exercise your data rights, please contact:
+
+                        Email: privacy@nazdeeki.com
+                        Phone: [Customer Support Number]
+                        Address: [Company Address]
+
+                        By using Nazdeeki, you acknowledge that you have read and understood this Privacy Statement and
+                        agree to its
+                        terms.
+
+                        This policy is modeled on leading food tech privacy policies and Indian legal requirements.
+                        Please consult a
+                        legal professional for compliance with all applicable laws and regulations before publishing.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-orange-50 text-gray-600 text-sm px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-2 md:mb-0">&copy; 2025 Nazdeeki. All rights reserved.</div>
+        <div class="flex gap-4">
+            <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+            <a href="cookies.html" class="hover:underline">Cookies</a>
+            <a href="termsandconditions.html" class="hover:underline">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <!-- JS for menu toggle -->
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const closePanel = document.getElementById('close-panel');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        closePanel.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        });
+    </script>
+
+
+</body>
+
+</html>

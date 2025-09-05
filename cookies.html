@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazdeeki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-orange-50 text-black">
+
+    <!--Desktop & Tablet Navbar -->
+    <nav class="hidden md:block sticky top-0 backdrop-blur-sm bg-orange/10 z-999">
+        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <img src="./Assets/nazdeeki logo.png" alt="Logo" class="w-40 object-contain">
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex space-x-8 text-lg text-gray-600 ">
+                <a href="index.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Home</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Home</span>
+                    </div>
+                </a>
+                <a href="index.html#services" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Services</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Services</span>
+                    </div>
+                </a>
+                <a href="faqandpricing.html#pricing" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Pricing</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Pricing</span>
+                    </div>
+                </a>
+                <a href="faqandpricing.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">FAQ</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">FAQ</span>
+                    </div>
+                </a>
+                <a href="contactus.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Contact</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Contact</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav
+        class="md:hidden w-full mx-auto px-4 py-2  flex items-center justify-between shadow-lg z-50 bg-orange-50 fixed ">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="./Assets/nazdeeki logo.png" alt="Logo" class=" w-40 object-contain">
+        </div>
+        <!-- Mobile Hamburger Button (visible on small screens) -->
+        <div class="flex md:hidden">
+            <button id="menu-toggle" class="text-black focus:outline-none">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Panel -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white flex-col items-center justify-center hidden z-40">
+        <div class="absolute top-4 right-4">
+            <!-- Close button (same as icon toggle) -->
+            <button id="close-panel" class="text-black focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-full space-y-8  text-xl font-medium">
+            <a href="index.html" class="hover:text-orange-600">Home</a>
+            <a href="index.html#services" class="hover:text-orange-600">Services</a>
+            <a href="faqandpricing.html#pricing" class="hover:text-orange-600">Pricing</a>
+            <a href="faqandpricing.html" class="hover:text-orange-600">FAQ</a>
+            <a href="contactus.html" class="hover:text-orange-600">Contact</a>
+
+            <hr class="w-2/3 border-t mt-4 border-gray-300" />
+
+            <p class="text-center text-base text-gray-600 px-4 italic">
+                “Good food is the foundation of genuine happiness.” - Auguste Escoffier
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="px-12 md:px-16 pt-32 md:pt-16 py-16">
+        <h4 class="text-left text-4xl ">
+            Cookie Policy Version 1.0 <br>
+            Effective Date: [Insert Date]
+        </h4>
+
+
+        <ul class="list-disc">
+            <li class="my-4 text-left ">
+                This Cookie Policy explains how Nazdeeki Technologies Private Limited ("Nazdeeki", "we", "us", or "our")
+                uses cookies and related technologies on our website, mobile applications, vendor/staff portals, and
+                other
+                online services that link to this policy (collectively, the "Platforms").
+            </li>
+            <li class="my-4 text-left ">
+                What is a cookie?
+                Cookies are small data files that are placed on your computer or mobile device when you visit a website
+                or
+                use an app. Cookies are widely used to make websites and apps work, or work more efficiently, as well as
+                to
+                provide reporting information and personalize your experience.
+
+                We use both first-party cookies (set by Nazdeeki) and third-party cookies (set by others, such as
+                analytics
+                or advertising partners). We may also use web beacons (tracking pixels) and similar technologies for
+                similar
+                purposes.
+            </li>
+            <li class="my-4 text-left ">
+                Why does Nazdeeki use cookies?
+                We use cookies for the following reasons:
+
+                Essential Cookies: Required for the technical operation of our Platforms and to enable core features
+                (e.g.,
+                account login, order placement).
+
+                Performance and Functional Cookies: Enhance the performance and functionality of our Platforms (e.g.,
+                remembering user preferences, enabling chat support).
+
+                Analytics Cookies: Collect information about how users interact with our Platforms to help us improve
+                them
+                and understand usage trends.
+
+                Advertising Cookies: Make advertising messages more relevant to you and measure the effectiveness of our
+                campaigns.
+            </li>
+            <li class="my-4 text-left ">
+                How to disable cookies
+                You can control and manage cookies in various ways. Most browsers allow you to refuse or accept cookies,
+                delete cookies, or alert you when cookies are being sent. Please note that if you disable or refuse
+                cookies,
+                some parts of our Platforms may become inaccessible or not function properly.
+
+                For more information about managing cookies, visit:
+
+                http://www.aboutads.info/choices/ (US)
+
+                http://www.youronlinechoices.eu/ (EU)
+
+                http://www.networkadvertising.org/mobile-choices (Mobile)
+            </li>
+            <li class="my-4 text-left ">
+                Cookies We Use
+                Cookie Name Provider Category Purpose Duration
+                nazdeeki_session Nazdeeki Essential Maintains session and user login state Session
+                cookieconsent_status Nazdeeki Essential Stores your cookie consent preference 1 year
+                user_prefs Nazdeeki Functional Remembers your settings and preferences 6 months
+                _ga Google Analytics Analytics Generates statistical data on how the site/app is used 2 years
+                _gid Google Analytics Analytics Generates statistical data on how the site/app is used 1 day
+                _gat Google Analytics Analytics Throttles request rate 1 day
+                _fbp Facebook Advertising Delivers targeted advertising and measures campaign effectiveness 3 months
+                fr Facebook Advertising Delivers targeted advertising 3 months
+                test_cookie Google/DoubleClick Advertising Tests if the browser supports cookies 1 day
+                lang LinkedIn Advertising Remembers user's selected language version Session
+                paddlejs_campaign_referrer Paddle Analytics Tracks campaign referrers for visitors 1 month
+                This is a representative list. The actual cookies used may vary and may change as we update our
+                services.
+            </li>
+            <li class="my-4 text-left ">
+                Updating This Policy
+                We may update this Cookie Policy from time to time to reflect changes in technology, law, or our
+                business
+                operations. We encourage you to periodically review this page for the latest information. Your continued
+                use
+                of our Platforms constitutes your agreement to this policy.
+            </li>
+            <li class="my-4 text-left ">
+                Contact Us
+                If you have any questions or concerns regarding this Cookie Policy or Nazdeeki's privacy practices,
+                please
+                contact us at: <br> 
+
+                Email: <a href="mailto:privacy@nazdeeki.com"></a>privacy@nazdeeki.com <br>
+                Phone: <a href="tel:+910000000000">+91 00000 00000</a><br>
+                <address>Address: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore, autem. Molestias, autem.</address>
+            </li>
+            <li class="my-4 text-left ">
+                Reset settings
+                If you wish to clear or update your cookie preferences, please use the cookie settings option in your
+                browser or app.
+
+                We use cookies to personalize content, run ads, and analyze traffic. By using Nazdeeki, you consent to
+                our
+                use of cookies as described in this policy.
+            </li>
+        </ul>
+
+
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-orange-50 text-gray-600 text-sm px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-2 md:mb-0">&copy; 2025 Nazdeeki. All rights reserved.</div>
+        <div class="flex gap-4">
+            <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+            <a href="cookies.html" class="hover:underline">Cookies</a>
+            <a href="termsandconditions.html" class="hover:underline">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <!-- JS for menu toggle -->
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const closePanel = document.getElementById('close-panel');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        closePanel.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        });
+    </script>
+
+
+</body>
+
+</html>

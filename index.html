@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazdeeki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-orange-50 text-black">
+
+    <!--Desktop & Tablet Navbar -->
+    <nav class="hidden md:block  top-0 backdrop-blur-sm bg-orange/10 z-800">
+        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <img src="./Assets/nazdeeki logo.png" alt="Logo" class="w-40 object-contain">
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex space-x-8 text-lg text-gray-600 ">
+                <a href="index.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Home</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Home</span>
+                    </div>
+                </a>
+                <a href="index.html#services" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Services</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Services</span>
+                    </div>
+                </a>
+                <a href="faqandpricing.html#pricing" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Pricing</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Pricing</span>
+                    </div>
+                </a>
+                <a href="faqandpricing.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">FAQ</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">FAQ</span>
+                    </div>
+                </a>
+                <a href="contactus.html" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Contact</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Contact</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav
+        class="md:hidden w-full mx-auto px-4 py-2  flex items-center justify-between shadow-lg z-50 bg-orange-50 fixed ">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="./Assets/nazdeeki logo.png" alt="Logo" class=" w-40 object-contain">
+        </div>
+        <!-- Mobile Hamburger Button (visible on small screens) -->
+        <div class="flex md:hidden">
+            <button id="menu-toggle" class="text-black focus:outline-none">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Panel -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white flex-col items-center justify-center hidden z-40">
+        <div class="absolute top-4 right-4">
+            <!-- Close button (same as icon toggle) -->
+            <button id="close-panel" class="text-black focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-full space-y-8  text-xl font-medium">
+            <a href="index.html" class="hover:text-orange-600">Home</a>
+            <a href="index.html#services" class="hover:text-orange-600">Services</a>
+            <a href="faqandpricing.html#pricing" class="hover:text-orange-600">Pricing</a>
+            <a href="faqandpricing.html" class="hover:text-orange-600">FAQ</a>
+            <a href="contactus.html" class="hover:text-orange-600">Contact</a>
+
+            <hr class="w-2/3 border-t mt-4 border-gray-300" />
+
+            <p class="text-center text-base text-gray-600 px-4 italic">
+                “Good food is the foundation of genuine happiness.” - Auguste Escoffier
+            </p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-12 px-4 pt-48 md:pt-24 z-10" data-aos="zoom-in">
+        <div class="max-w-3xl mx-auto text-center space-y-4">
+
+            <!-- Rating Capsule -->
+            <div
+                class="inline-flex items-center space-x-2 bg-orange-200 text-gray-800 px-4 py-2 mb-4 rounded-full text-sm font-medium">
+                <span>Coming Soon</span>
+                <!-- <span>Playstore</span> -->
+                <!-- 5 filled stars -->
+                <!-- <div class="flex space-x-1 text-gray-800">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path
+                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
+                    </svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path
+                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
+                    </svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path
+                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
+                    </svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path
+                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
+                    </svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                        <path
+                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
+                    </svg>
+                </div>
+                <span>5.0</span> -->
+            </div>
+
+            <!-- Heading -->
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-800 py-2">Find your <span
+                    class="text-orange-500">NAZDEEKi</span></h1>
+
+            <!-- Subtext -->
+            <p class="text-gray-600 px-2 md:px-8 text-sm">
+                Get your nearest food shops on a single platform. Enjoy the best taste made for you!
+            </p>
+
+            <!-- get early access email -->
+            <div class="mt-24">
+                <form action="">
+                    <input type="email" name="" id=""
+                        class="inline-block w-full  md:w-[80%]  border-2 border-gray-300 rounded-3xl text-center p-0.5 text-lg"
+                        placeholder="abhishekv@gmail.com">
+
+                    <button type="submit"
+                        class="mt-4 px-4 py-2 bg-black text-white rounded-full text-sm md:text-base font-semibold transition transform hover:scale-90 z8">Get
+                        early access</button>
+                </form>
+                <button>
+
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist counter -->
+    <section class=" py-12 px-6 md:px-12 lg:px-24 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Join the Waitlist 🚀
+            </h2>
+            <p class="text-gray-600 mb-8">
+                Be part of the first few thousand who will experience Nazdeeki before anyone else.
+            </p>
+
+            <!-- Counter -->
+            <div class="text-5xl md:text-6xl font-extrabold text-green-600" id="counter">
+                0
+            </div>
+            <p class="text-gray-700 mt-2">People already joined the waitlist</p>
+        </div>
+    </section>
+
+
+    <!-- Screenshot section -->
+    <section data-aos="fade-up">
+        <div class="h-[80vh] my-16"
+            style="background-image: url('./Assets/screenshot5images.png'); background-size: contain; background-position: center; background-repeat: no-repeat;">
+        </div>
+    </section>
+
+
+
+    <!-- 2 highlighting points -->
+    <section class=" py-36 px-6 md:px-12 lg:px-24">
+        <h1 class="text-6xl text-center  mb-12" data-aos="zoom-in">Unique Features</h1>
+        <div class="max-w-6xl mx-auto space-y-24">
+
+            <!-- 🚀 AI Features -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
+                <!-- Image -->
+                <div>
+                    <img src="./Assets/ai logo.png" alt="AI Features" class="rounded-2xl w-full object-cover">
+                </div>
+                <!-- Text -->
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        🚀 AI Features
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Smarter food, smarter growth—Nazdeeki’s AI works for both users and sellers.
+                    </p>
+
+                    <!-- For Users -->
+                    <h4 class="font-semibold text-gray-800 mb-3">For Users:</h4>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                                ✔
+                            </span>
+                            <span class="text-gray-700"><strong>Smart Food Recos:</strong> AI suggests dishes based on
+                                your tastes and health goals.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                                ✔
+                            </span>
+                            <span class="text-gray-700"><strong>Personalized Offers:</strong> Get deals and healthy
+                                picks tailored just for you.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                                ✔
+                            </span>
+                            <span class="text-gray-700"><strong>Fast Answers:</strong> Chatbots help with orders, diets,
+                                and questions instantly.</span>
+                        </li>
+                    </ul>
+
+                    <!-- For Sellers -->
+                    <h4 class="font-semibold text-gray-800 mb-3">For Sellers:</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Menu Optimization:</strong> Boost your menu with
+                                AI-driven insights.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Predictive Growth:</strong> Spot sales trends & customer
+                                behavior easily.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Delivery Route Planner:</strong> Find fastest delivery
+                                paths to save time.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 🔗 Web3 Features -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center lg:flex-row-reverse" data-aos="fade-up">
+                <!-- Text -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        🔗 Web3 Features
+                    </h3>
+                    <p class="text-gray-600 mb-6">
+                        Secure, transparent, and rewarding—Nazdeeki’s Web3 magic happens behind the scenes.
+                    </p>
+
+                    <!-- For Users -->
+                    <h4 class="font-semibold text-gray-800 mb-3">For Users:</h4>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>True Order Security:</strong> Every order is stored
+                                safely on blockchain.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Zero Extra Fees:</strong> No crypto needed, no hidden
+                                charges.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Instant Loyalty Tokens:</strong> Earn rewards
+                                automatically with every order.</span>
+                        </li>
+                    </ul>
+
+                    <!-- For Sellers -->
+                    <h4 class="font-semibold text-gray-800 mb-3">For Sellers:</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Gasless Transactions:</strong> Keep all your profits
+                                with zero blockchain fees.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Auto-Reward Distribution:</strong> Customers get tokens
+                                instantly—no manual tracking.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span
+                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
+                            <span class="text-gray-700"><strong>Transparent Payments:</strong> Secure and instant
+                                transactions, always recorded.</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Image -->
+                <div>
+                    <img src="./Assets/web3 logo.png" alt="Web3 Features"
+                        class="rounded-2xl shadow-lg w-full object-cover">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Unique features -->
+    <section class="py-32 px-6 md:px-12 lg:px-24" data-aos="fade-up">
+        <div class="max-w-5xl mx-auto text-center">
+            <!-- Title -->
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Our Unique Features
+            </h2>
+            <!-- Subtitle -->
+            <p class="text-gray-600 max-w-2xl mx-auto mb-10">
+                Discover what makes our app stand out. Designed with simplicity, speed, and reliability in mind to give
+                you the best user experience possible.
+            </p>
+        </div>
+
+        <!-- Feature List -->
+        <div class="max-w-4xl mx-auto grid gap-6 md:grid-cols-2">
+            <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                        <!-- Check Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-gray-700 text-lg">Lightning-fast performance with minimal load times</p>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-gray-700 text-lg">Modern, intuitive, and minimalist design</p>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-gray-700 text-lg">Highly secure with advanced data protection</p>
+            </div>
+
+            <div class="flex items-start gap-4">
+                <div class="flex-shrink-0">
+                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-gray-700 text-lg">Cross-platform support for web & mobile</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonial Section -->
+    <!-- <section class="bg-orange-50 py-12 px-4" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto text-center">
+            <span class="inline-block bg-black text-white px-4 py-2 rounded-full text-sm mb-4">Testimonial</span>
+            <h2 class="text-gray-600 text-xl mb-8">
+                Trusted by 100+ members all over the world.
+            </h2>
+
+            <div
+                class="flex space-x-4 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 pb-4 hide-scrollbar items-center">
+                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
+                    <p class="mb-4 text-gray-700">
+                        “Absolutely amazing experience! The food arrived quickly and was super fresh.”
+                    </p>
+                    <hr class="mb-4">
+                    <div class="flex items-center gap-4">
+                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 1" />
+                        <div class="text-left">
+                            <h4 class="text-sm font-semibold">Aisha Roy</h4>
+                            <p class="text-xs text-gray-500">Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
+                    <p class="mb-4 text-gray-700">
+                        “This app saves so much time. I love the local vendor support. Highly recommended!”
+                    </p>
+                    <hr class="mb-4">
+                    <div class="flex items-center gap-4">
+                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 2" />
+                        <div class="text-left">
+                            <h4 class="text-sm font-semibold">Rahul Mehra</h4>
+                            <p class="text-xs text-gray-500">Restaurant Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
+                    <p class="mb-4 text-gray-700">
+                        “User-friendly, super fast and beautifully designed. It's now my go-to for food orders.”
+                    </p>
+                    <hr class="mb-4">
+                    <div class="flex items-center gap-4">
+                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 3" />
+                        <div class="text-left">
+                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
+                            <p class="text-xs text-gray-500">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
+                    <p class="mb-4 text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veritatis molestiae?
+                    </p>
+                    <hr class="mb-4">
+                    <div class="flex items-center gap-4">
+                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 4" />
+                        <div class="text-left">
+                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
+                            <p class="text-xs text-gray-500">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
+                    <p class="mb-4 text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem recusandae veritatis
+                    </p>
+                    <hr class="mb-4">
+                    <div class="flex items-center gap-4">
+                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 5" />
+                        <div class="text-left">
+                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
+                            <p class="text-xs text-gray-500">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
+                    <p class="mb-4 text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.recusandae veritatis ?
+                    </p>
+                    <hr class="mb-4">
+                    <div class="flex items-center gap-4">
+                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 6" />
+                        <div class="text-left">
+                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
+                            <p class="text-xs text-gray-500">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
+                    <p class="mb-4 text-gray-700">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veritatis molestiae?
+                    </p>
+                    <hr class="mb-4">
+                    <div class="flex items-center gap-4">
+                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 7" />
+                        <div class="text-left">
+                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
+                            <p class="text-xs text-gray-500">Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!--Services / How it works Section 4 User-->
+    <section id="services" class="bg-orange-50 py-16 px-4 sm:px-6 lg:px-16" data-aos="fade-up">
+        <!-- Black Capsule Title -->
+        <div class="flex justify-center">
+            <span class="bg-black text-white px-6 py-1 rounded-full text-lg font-medium">How it Works</span>
+        </div>
+
+        <!-- Subtitle -->
+        <h2 class="text-center text-gray-700 text-xl sm:text-2xl md:text-3xl font-light mt-4 mb-10">
+            Find your nearest Bite and get all the services you need in one place
+        </h2>
+
+        <!-- Horizontal Scroll Panels -->
+        <div class="flex overflow-x-auto space-x-6 hide-scrollbar scroll-smooth snap-x snap-mandatory pb-4">
+            <!-- Panel 1 -->
+            <div
+                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl lg:px-6 p-4 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
+                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Scan</h3>
+                <p class="text-md text-gray-600 mb-4">"Scan the Code, Taste the Menu!"</p>
+                <div class="flex justify-center mb-4">
+                    <img src="./Assets/food-wallpaper.jpg" alt="App Screenshot"
+                        class="w-40 h-auto border-8 border-black rounded-3xl" />
+                </div>
+                <p class="text-gray-600 text-sm lg:px-16">
+                    No more flipping through old menus! Simply scan the QR code with your phone to instantly explore the
+                    digital menu. It's fast, hygienic, and always up-to-date with the latest flavors and offers
+                </p>
+            </div>
+
+            <!-- Panel 2 -->
+            <div
+                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
+                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Takeaway (Parcel)</h3>
+                <p class="text-md text-gray-600 mb-4">"Grab & Go, The Easy Way!"
+                </p>
+                <div class="flex justify-center mb-4">
+                    <img src="https://dummyimage.com/200x400/ccc/fff&text=Screenshot+2" alt="App Screenshot"
+                        class="w-40 h-auto border-8 border-black rounded-3xl" />
+                </div>
+                <p class="text-gray-600 text-sm lg:px-16">
+                    In a rush? Choose your favorites, place your order, and pick it up when it's ready. Our seamless
+                    takeaway system is designed to save your time while keeping your food fresh and ready to go.
+                </p>
+            </div>
+
+            <!-- Panel 3 -->
+            <div
+                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
+                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Dine-in</h3>
+                <p class="text-md text-gray-600 mb-4">"Reserve. Relax. Relish!"</p>
+                <div class="flex justify-center mb-4">
+                    <img src="https://dummyimage.com/200x400/ccc/fff&text=Screenshot+3" alt="App Screenshot"
+                        class="w-40 h-auto border-8 border-black rounded-3xl" />
+                </div>
+                <p class="text-gray-600 text-sm lg:px-16">
+                    Want to enjoy your meal at our place? Book your table in advance, skip the wait, and indulge in a
+                    smooth, relaxed dining experience. Good vibes and great food await you!
+                </p>
+            </div>
+
+            <!-- Panel 4 -->
+            <div
+                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
+                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1"> Delivery</h3>
+                <p class="text-md text-gray-600 mb-4">
+                    "Hot & Fresh, Right to You!"</p>
+                <div class="flex justify-center mb-4">
+                    <img src="https://dummyimage.com/200x400/ccc/fff&text=Screenshot+3" alt="App Screenshot"
+                        class="w-40 h-auto border-8 border-black rounded-3xl" />
+                </div>
+                <p class="text-gray-600 text-sm lg:px-16">
+                    Craving comfort at home? Order online and let us bring the goodness to your doorstep—hot, fresh, and
+                    packed with care. Just sit back and enjoy the flavors!
+                </p>
+            </div>
+
+            <!-- Panel 5 -->
+            <div
+                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
+                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Event Booking</h3>
+                <p class="text-md text-gray-600 mb-4">
+                    "Book Food for Every Mood!"</p>
+                <div class="flex justify-center mb-4">
+                    <img src="https://dummyimage.com/200x400/ccc/fff&text=Screenshot+3" alt="App Screenshot"
+                        class="w-40 h-auto border-8 border-black rounded-3xl" />
+                </div>
+                <p class="text-gray-600 text-sm lg:px-16">
+                    Planning a party, meeting, or celebration? Let us handle the food! From small gatherings to grand
+                    events, we cater to every mood and moment with delicious, customizable menu options.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works Section 4 Sellers -->
+    <section class=" py-16 px-6 text-center text-gray-800" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto space-y-12">
+
+            <!-- Section Title -->
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">How It Works, for Sellers</h2>
+
+            <!-- Steps (Repeat or Modify as Needed) -->
+            <div class="grid gap-12 md:grid-cols-3">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="text-4xl mb-4 text-orange-500 font-bold">1</div>
+                    <h3 class="text-xl font-semibold mb-2">Sign Up</h3>
+                    <p class="text-gray-600">Create your account and get started within minutes.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="text-4xl mb-4 text-orange-500 font-bold">2</div>
+                    <h3 class="text-xl font-semibold mb-2">List Your Services</h3>
+                    <p class="text-gray-600">Add your shop/hotel details, menus, offers, and availability.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <div class="text-4xl mb-4 text-orange-500 font-bold">3</div>
+                    <h3 class="text-xl font-semibold mb-2">Go Live</h3>
+                    <p class="text-gray-600">Start receiving orders, bookings & more - right from Day 1.</p>
+                </div>
+            </div>
+
+            <!-- Call-to-Action Buttons -->
+            <div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
+                <a href="#"
+                    class="bg-black text-white text-xl px-6 py-3 rounded-full hover:bg-gray-800 hover:scale-90 transition">Join
+                    Us</a>
+                <a href="#"
+                    class="bg-black text-white text-xl px-6 py-3 rounded-full hover:bg-gray-800 hover:scale-90 transition">Book
+                    a Demo</a>
+            </div>
+
+            <!-- Captivating Line -->
+            <p class="mt-8 text-lg font-medium text-gray-700 max-w-2xl mx-auto">
+                Take your local business to the next level with Nazdeeki — more visibility, more customers, more growth.
+            </p>
+        </div>
+    </section>
+
+    <!-- issue form -->
+    <section class="bg-orange-50 py-20 px-6 md:px-12 lg:px-24">
+        <h1 class="text-5xl font-bold text-center py-1" data-aos="fade-in">Facing Issues ?</h1>
+        <div class="max-w-4xl mx-auto space-y-16">
+
+            <!-- User Feedback -->
+            <div class="bg-orange-50 rounded-2xl p-8" data-aos="fade-up">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">💬 For Users</h3>
+                <p class="text-gray-700 mb-6">
+                    We’d love to know your experience!
+                    Tell us what issues or challenges you face when using food delivery apps.
+                    Your feedback helps us build a smoother and smarter service for you.
+                </p>
+                <textarea
+                    class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
+                    placeholder="Write your feedback here..."></textarea>
+                <button class="mt-4 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">
+                    Submit Feedback
+                </button>
+            </div>
+
+            <!-- Seller Feedback -->
+            <div class="bg-orange-50 rounded-2xl p-8" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">🏪 For Restaurant Owners</h3>
+                <p class="text-gray-700 mb-6">
+                    Running a restaurant is tough—we get it!
+                    Share the problems you face while listing your restaurant or using other app features.
+                    Your insights help us make Nazdeeki better for your business.
+                </p>
+                <textarea
+                    class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
+                    placeholder="Write your feedback here..."></textarea>
+                <button class="mt-4 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">
+                    Submit Feedback
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="py-12 scroll-mt-28" data-aos="fade-up">
+        <div class="max-w-7xl px-4 mx-auto">
+            <div class="flex justify-center">
+                <h2
+                    class="inline-block px-8 py-2 bg-black text-white rounded-full text-lg text-center font-medium my-8">
+                    Latest Blogs
+                </h2>
+            </div>
+
+            <div class="flex max-w-5xl mx-auto overflow-x-scroll gap-6 hide-scrollbar px-2">
+                <!-- Blog Card 1 -->
+                <a href="#">
+                    <div class="min-w-[350px] h-[200px] flex flex-col justify-end p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
+                        style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
+                        <p class="text-sm mb-1">12 July 2025</p>
+                        <h3 class="text-lg font-semibold">The Secret Behind Tasty Street Foods</h3>
+                    </div>
+                </a>
+
+                <!-- Blog Card 2 -->
+                <a href="#">
+                    <div class="min-w-[350px] h-[200px] flex flex-col justify-end p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
+                        style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
+                        <p class="text-sm mb-1">10 July 2025</p>
+                        <h3 class="text-lg font-semibold">Top 5 Biryani Spots in Your City</h3>
+                    </div>
+                </a>
+
+                <!-- View All Card -->
+                <a href="#">
+                    <div class="min-w-[350px] h-[200px] flex items-center justify-center p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
+                        style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
+                        <h3 class="text-xl font-bold text-center">View All</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="bg-[#fff7f0] px-8 py-16" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto text-center">
+            <!-- Capsule Title -->
+            <div class="inline-block bg-black text-white text-lg px-8 py-2 rounded-full mb-6">
+                Our Mission
+            </div>
+
+            <!-- Mission Paragraph -->
+            <p class="text-2xl  md:text-5xl text-gray-black mb-6">
+                To connect people with nearby restaurants and food shops through an all in one platform, that offers
+                fast, flexible and affordable food services - empowering local vendors, to grow their services and serve
+                the communities better.
+            </p>
+
+            <!-- Tagline -->
+            <p class="text-xl text-gray-500">Empowering local flavours</p>
+        </div>
+    </section>
+
+    <!-- Gradient Card Section -->
+    <div class=" p-2 md:px-8 md:py-16 lg:px-32" data-aos="fade-up">
+        <section class="bg-gradient-to-b from-white to-orange-50 px-4 py-12 rounded-3xl">
+            <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+
+                <!-- Left Side Content -->
+                <div class="flex-1 text-center md:text-left md:px-16">
+                    <h3 class="text-sm text-gray-500 mb-2">Join the Waitlist</h3>
+                    <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-6 leading-snug">
+                        Scan, Dine, Takeaway, Delivery & Events booking — Nazdeeki Does it all for you
+                    </h2>
+
+                    <!-- Play Store Button -->
+                    <!-- <a href="#"
+                        class="inline-flex items-center bg-black text-white rounded-full px-4 py-2 transition-transform hover:scale-95">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Playstore" class="h-10 w-auto" />
+                    </a> -->
+                    <p
+                        class="bg-orange-500 text-gray-50 text-lg font-semibold mx-auto md:w-72 text-center rounded-full p-4 mt-12">
+                        Stay tuned, Coming Soon!</p>
+                </div>
+
+                <!-- Right Side Image -->
+                <div class="flex-1 flex justify-center">
+                    <!-- Replace with your iPhone screenshot -->
+                    <img src="./Assets/food wallpaper for blogs.jpg" alt="App Screenshot"
+                        class="w-[250px] md:w-[300px] rounded-xl  shadow-lg" />
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Final Section -->
+    <section class="bg-orange-50 text-gray-800 text-center px-1 pt-8 space-y-4" data-aos="fade-up">
+
+        <!-- Heading -->
+        <h2 class="text-4xl md:text-5xl secondary-font mb-8">Har <span>गली</span> ka swad - NAZDEEKi ke sath!</h2>
+
+        <!-- Navigation Links -->
+        <nav class="flex flex-col md:flex-row justify-center items-center gap-4 text-md text-gray-600 font-medium">
+            <a href="#" class="hover:text-orange-500">Home</a>
+            <a href="#" class="hover:text-orange-500">Services</a>
+            <a href="#" class="hover:text-orange-500">Pricing</a>
+            <a href="#" class="hover:text-orange-500">FAQ</a>
+            <a href="#" class="hover:text-orange-500">Contact</a>
+        </nav>
+
+        <!-- Social Media Icons -->
+        <div class="flex justify-center gap-6 text-xl text-gray-600">
+            <a href="#" class="hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-orange-500"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+        <!-- Logo Image -->
+        <div class="w-full my-4">
+            <img src="./Assets/NazdeekiBigWallpaper.png" alt="Nazdeeki Logo" class="w-full object-contain mx-auto" />
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-orange-50 text-gray-600 text-sm px-6 py-8 flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-2 md:mb-0">&copy; 2025 Nazdeeki. All rights reserved.</div>
+        <div class="flex gap-4">
+            <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+            <a href="cookies.html" class="hover:underline">Cookies</a>
+            <a href="termsandconditions.html" class="hover:underline">Terms & Conditions</a>
+        </div>
+    </footer>
+
+
+
+
+    <!-- JS for menu toggle -->
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const closePanel = document.getElementById('close-panel');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        closePanel.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        });
+    </script>
+
+    <!-- js for no of people in waitlist -->
+    <script>
+        // Counter animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const counter = document.getElementById("counter");
+            const target = 1200; // Change this to your desired number
+            const duration = 1000; // animation duration in ms
+            let start = 0;
+            const stepTime = Math.abs(Math.floor(duration / target));
+
+            const timer = setInterval(() => {
+                start++;
+                counter.textContent = start.toLocaleString(); // add commas like 5,000
+                if (start >= target) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        });
+    </script>
+
+    <!-- AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,   // animation duration (ms)
+            once: false,       // animate only once when scrolling down
+            easing: 'ease-in-out'
+        });
+    </script>
+
+
+</body>
+
+</html>
