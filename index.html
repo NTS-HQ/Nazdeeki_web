@@ -21,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Google Sign-In -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
 
@@ -166,21 +168,47 @@
 
             <!-- get early access email -->
             <div class="mt-24">
-                <form action="">
-                    <input type="email" name="" id=""
+                <form id="earlyAccessForm">
+                    <input type="email" name="email" id="emailInput" required
                         class="inline-block w-full  md:w-[80%]  border-2 border-gray-300 rounded-3xl text-center p-0.5 text-lg"
-                        placeholder="abhishekv@gmail.com">
+                        placeholder="example@gmail.com">
 
-                    <button type="submit"
+                    <button type="submit" id="submitBtn"
                         class="mt-4 px-4 py-2 bg-black text-white rounded-full text-sm md:text-base font-semibold transition transform hover:scale-90 z8">Get
                         early access</button>
                 </form>
-                <button>
+                
+                <!-- OR divider -->
+                <div class="flex items-center my-6 max-w-md mx-auto">
+                    <hr class="flex-grow border-gray-300">
+                    <span class="px-4 text-gray-500 text-sm">OR</span>
+                    <hr class="flex-grow border-gray-300">
+                </div>
 
-                </button>
+                <!-- Google Sign-In Button -->
+                <div class="flex justify-center">
+                    <div id="g_id_onload"
+                         data-client_id="858424434372-q21o2qfqn4c6o2ls72ns52tc92ljtq20.apps.googleusercontent.com"
+                         data-context="signup"
+                         data-ux_mode="popup"
+                         data-callback="handleGoogleSignUp"
+                         data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin"
+                         data-type="standard"
+                         data-shape="pill"
+                         data-theme="outline"
+                         data-text="signup_with"
+                         data-size="large"
+                         data-logo_alignment="left">
+                    </div>
+                </div>
+
+                <div id="message" class="mt-4 text-sm font-medium hidden"></div>
             </div>
         </div>
     </section>
+
 
     <!-- Waitlist counter -->
     <section class=" py-12 px-6 md:px-12 lg:px-24 text-center">
@@ -227,7 +255,7 @@
                         🚀 AI Features
                     </h3>
                     <p class="text-gray-600 mb-6">
-                        Smarter food, smarter growth—Nazdeeki’s AI works for both users and sellers.
+                        Smarter food, smarter growth—Nazdeeki's AI works for both users and sellers.
                     </p>
 
                     <!-- For Users -->
@@ -292,7 +320,7 @@
                         🔗 Web3 Features
                     </h3>
                     <p class="text-gray-600 mb-6">
-                        Secure, transparent, and rewarding—Nazdeeki’s Web3 magic happens behind the scenes.
+                        Secure, transparent, and rewarding—Nazdeeki's Web3 magic happens behind the scenes.
                     </p>
 
                     <!-- For Users -->
@@ -874,23 +902,126 @@
         });
     </script>
 
-    <!-- js for no of people in waitlist -->
+    <!-- js for no of people in waitlist and form handling -->
     <script>
-        // Counter animation
+        let currentCount = 0;
+
+        // Load initial count
         document.addEventListener("DOMContentLoaded", () => {
+            loadCount();
+        });
+
+        async function loadCount() {
+            try {
+                const response = await fetch('/api/count');
+                const data = await response.json();
+                currentCount = data.count;
+                animateCounter(currentCount);
+            } catch (error) {
+                console.error('Error loading count:', error);
+                animateCounter(1200); // fallback to static number
+            }
+        }
+
+        function animateCounter(target) {
             const counter = document.getElementById("counter");
-            const target = 1200; // Change this to your desired number
-            const duration = 1000; // animation duration in ms
+            const duration = 1000;
             let start = 0;
-            const stepTime = Math.abs(Math.floor(duration / target));
+            const stepTime = Math.abs(Math.floor(duration / target)) || 1;
 
             const timer = setInterval(() => {
                 start++;
-                counter.textContent = start.toLocaleString(); // add commas like 5,000
+                counter.textContent = start.toLocaleString();
                 if (start >= target) {
                     clearInterval(timer);
                 }
             }, stepTime);
+        }
+
+        // Handle Google Sign-Up
+        async function handleGoogleSignUp(response) {
+            const message = document.getElementById('message');
+            message.className = 'mt-4 text-sm font-medium hidden';
+
+            try {
+                const result = await fetch('/api/google-signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ credential: response.credential })
+                });
+
+                const data = await result.json();
+
+                if (result.ok) {
+                    // Success
+                    message.className = 'mt-4 text-sm font-medium text-green-600';
+                    message.textContent = `Thank you${data.name ? ', ' + data.name.split(' ')[0] : ''}! You've been added to the waitlist.`;
+                    
+                    // Update counter
+                    currentCount = data.count;
+                    document.getElementById("counter").textContent = currentCount.toLocaleString();
+                } else {
+                    // Error
+                    message.className = 'mt-4 text-sm font-medium text-red-600';
+                    message.textContent = data.error || 'Something went wrong. Please try again.';
+                }
+            } catch (error) {
+                message.className = 'mt-4 text-sm font-medium text-red-600';
+                message.textContent = 'Network error. Please check your connection and try again.';
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('earlyAccessForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('emailInput');
+            const submitBtn = document.getElementById('submitBtn');
+            const message = document.getElementById('message');
+            const email = emailInput.value.trim();
+
+            if (!email) return;
+
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Please wait...';
+            message.className = 'mt-4 text-sm font-medium hidden';
+
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Success
+                    message.className = 'mt-4 text-sm font-medium text-green-600';
+                    message.textContent = 'Thank you! You\'ve been added to the waitlist.';
+                    emailInput.value = '';
+                    
+                    // Update counter
+                    currentCount = data.count;
+                    document.getElementById("counter").textContent = currentCount.toLocaleString();
+                } else {
+                    // Error
+                    message.className = 'mt-4 text-sm font-medium text-red-600';
+                    message.textContent = data.error || 'Something went wrong. Please try again.';
+                }
+            } catch (error) {
+                message.className = 'mt-4 text-sm font-medium text-red-600';
+                message.textContent = 'Network error. Please check your connection and try again.';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get early access';
+            }
         });
     </script>
 
