@@ -51,12 +51,6 @@
                         <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Services</span>
                     </div>
                 </a>
-                <a href="faqandpricing.html#pricing" class="hover:text-orange-500 transition-colors duration-300">
-                    <div class="nav-link relative overflow-hidden h-6">
-                        <span class="nav-link-text nav-link-top block pb-1">Pricing</span>
-                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Pricing</span>
-                    </div>
-                </a>
                 <a href="faqandpricing.html" class="hover:text-orange-500 transition-colors duration-300">
                     <div class="nav-link relative overflow-hidden h-6">
                         <span class="nav-link-text nav-link-top block pb-1">FAQ</span>
@@ -110,7 +104,6 @@
         <div class="flex flex-col items-center justify-center h-full space-y-8  text-xl font-medium">
             <a href="index.html" class="hover:text-orange-600">Home</a>
             <a href="index.html#services" class="hover:text-orange-600">Services</a>
-            <a href="faqandpricing.html#pricing" class="hover:text-orange-600">Pricing</a>
             <a href="faqandpricing.html" class="hover:text-orange-600">FAQ</a>
             <a href="contactus.html" class="hover:text-orange-600">Contact</a>
 
@@ -168,16 +161,17 @@
 
             <!-- get early access email -->
             <div class="mt-24">
-                <form id="earlyAccessForm">
-                    <input type="email" name="email" id="emailInput" required
-                        class="inline-block w-full  md:w-[80%]  border-2 border-gray-300 rounded-3xl text-center p-0.5 text-lg"
-                        placeholder="example@gmail.com">
+                <form id="earlyAccessForm" class="flex block w-full max-w-xl mx-auto">
+                    <input type="email" name="email" id="emailInput" required placeholder="example@gmail.com"
+                        class="w-[60%] border-2 border-gray-300 px-4 py-2 text-sm md:text-base focus:outline-none focus:border-black rounded-l-lg bg-[#fdf7ee]">
 
                     <button type="submit" id="submitBtn"
-                        class="mt-4 px-4 py-2 bg-black text-white rounded-full text-sm md:text-base font-semibold transition transform hover:scale-90 z8">Get
-                        early access</button>
+                        class="w-[40%] border-2 border-gray-700 text-black rounded-r-lg px-4 py-2 text-sm md:text-base font-semibold transition-colors duration-300 hover:bg-black hover:text-white">
+                        Get early access
+                    </button>
                 </form>
-                
+
+
                 <!-- OR divider -->
                 <div class="flex items-center my-6 max-w-md mx-auto">
                     <hr class="flex-grow border-gray-300">
@@ -188,19 +182,12 @@
                 <!-- Google Sign-In Button -->
                 <div class="flex justify-center">
                     <div id="g_id_onload"
-                         data-client_id="858424434372-q21o2qfqn4c6o2ls72ns52tc92ljtq20.apps.googleusercontent.com"
-                         data-context="signup"
-                         data-ux_mode="popup"
-                         data-callback="handleGoogleSignUp"
-                         data-auto_prompt="false">
+                        data-client_id="858424434372-q21o2qfqn4c6o2ls72ns52tc92ljtq20.apps.googleusercontent.com"
+                        data-context="signup" data-ux_mode="popup" data-callback="handleGoogleSignUp"
+                        data-auto_prompt="false">
                     </div>
-                    <div class="g_id_signin"
-                         data-type="standard"
-                         data-shape="pill"
-                         data-theme="outline"
-                         data-text="signup_with"
-                         data-size="large"
-                         data-logo_alignment="left">
+                    <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
+                        data-text="signup_with" data-size="large" data-logo_alignment="left">
                     </div>
                 </div>
 
@@ -231,15 +218,15 @@
 
     <!-- Screenshot section -->
     <section data-aos="fade-up">
-        <div class="h-[50vh] my-2"
-            style="background-image: url('./Assets/screenshot5images.png'); background-size: contain; background-position: center; background-repeat: no-repeat;">
+        <div class="md:h-[80vh] my-2"
+            style="background-image: url('./Assets/nazdeeki_5_screenshots.png'); background-size: contain; background-position: center; background-repeat: no-repeat;">
         </div>
     </section>
 
 
 
     <!-- 2 highlighting points -->
-    <section class=" py-2 px-6 md:px-12 lg:px-24">
+    <section class="mt-8 py-2 px-6 md:px-12 lg:px-24">
         <h1 class="text-6xl text-center  mb-12" data-aos="zoom-in">Unique Features</h1>
         <div class="max-w-6xl mx-auto space-y-24">
 
@@ -255,7 +242,7 @@
                         🚀 AI Features
                     </h3>
                     <p class="text-gray-600 mb-6">
-                        Smarter food, smarter growth—Nazdeeki's AI works for both users and sellers.
+                        Smarter food, smarter growth - Nazdeeki's AI works for both users and sellers.
                     </p>
 
                     <!-- For Users -->
@@ -320,7 +307,7 @@
                         🔗 Web3 Features
                     </h3>
                     <p class="text-gray-600 mb-6">
-                        Secure, transparent, and rewarding—Nazdeeki's Web3 magic happens behind the scenes.
+                        Secure, transparent, and rewarding - Nazdeeki's Web3 magic happens behind the scenes.
                     </p>
 
                     <!-- For Users -->
@@ -329,20 +316,17 @@
                         <li class="flex items-start gap-3">
                             <span
                                 class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700"><strong>True Order Security:</strong> Every order is stored
-                                safely on blockchain.</span>
+                            <span class="text-gray-700">Orders locked & safe—thanks to blockchain</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span
                                 class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700"><strong>Zero Extra Fees:</strong> No crypto needed, no hidden
-                                charges.</span>
+                            <span class="text-gray-700">No crypto, no hidden fees—ever</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span
                                 class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700"><strong>Instant Loyalty Tokens:</strong> Earn rewards
-                                automatically with every order.</span>
+                            <span class="text-gray-700">Loyalty rewards, earned instantly</span>
                         </li>
                     </ul>
 
@@ -352,27 +336,24 @@
                         <li class="flex items-start gap-3">
                             <span
                                 class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700"><strong>Gasless Transactions:</strong> Keep all your profits
-                                with zero blockchain fees.</span>
+                            <span class="text-gray-700">Zero blockchain fees—keep more profit</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span
                                 class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700"><strong>Auto-Reward Distribution:</strong> Customers get tokens
-                                instantly—no manual tracking.</span>
+                            <span class="text-gray-700">Customers get rewards automatically</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <span
                                 class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700"><strong>Transparent Payments:</strong> Secure and instant
-                                transactions, always recorded.</span>
+                            <span class="text-gray-700">Every payment—secure, clear, and instant</span>
                         </li>
                     </ul>
                 </div>
                 <!-- Image -->
                 <div>
-                    <img src="./Assets/web3 logo.png" alt="Web3 Features"
-                        class="rounded-2xl shadow-lg w-full object-cover">
+                    <img src="./Assets/web_3_logo_new.png" alt="Web3 Features"
+                        class="rounded-2xl w-full object-cover">
                 </div>
             </div>
 
@@ -580,7 +561,7 @@
                 <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Scan</h3>
                 <p class="text-md text-gray-600 mb-4">"Scan the Code, Taste the Menu!"</p>
                 <div class="flex justify-center mb-4">
-                    <img src="./Assets/food-wallpaper.jpg" alt="App Screenshot"
+                    <img src="./Assets/scan.png" alt="App Screenshot"
                         class="w-40 h-auto border-8 border-black rounded-3xl" />
                 </div>
                 <p class="text-gray-600 text-sm lg:px-16">
@@ -588,9 +569,15 @@
                     digital menu. It's fast, hygienic, and always up-to-date with the latest flavors and offers
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['QR doesn\'t work'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">QR doesn't work</button>
-                    <button onclick="microPollUser(['Menu outdated'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Menu outdated</button>
-                    <button onclick="microPollUser(['App UX'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">App UX</button>
+                    <button onclick="microPollUser(['QR doesn\'t work'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">QR
+                        doesn't work</button>
+                    <button onclick="microPollUser(['Menu outdated'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Menu
+                        outdated</button>
+                    <button onclick="microPollUser(['App UX'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">App
+                        UX</button>
                 </div>
             </div>
 
@@ -601,7 +588,7 @@
                 <p class="text-md text-gray-600 mb-4">"Grab & Go, The Easy Way!"
                 </p>
                 <div class="flex justify-center mb-4">
-                    <img src="https://dummyimage.com/200x400/ccc/fff&text=Screenshot+2" alt="App Screenshot"
+                    <img src="./Assets/takeaway.png" alt="App Screenshot"
                         class="w-40 h-auto border-8 border-black rounded-3xl" />
                 </div>
                 <p class="text-gray-600 text-sm lg:px-16">
@@ -609,9 +596,15 @@
                     takeaway system is designed to save your time while keeping your food fresh and ready to go.
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Long wait'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Long wait</button>
-                    <button onclick="microPollUser(['Order not ready'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Order not ready</button>
-                    <button onclick="microPollUser(['Wrong items'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Wrong items</button>
+                    <button onclick="microPollUser(['Long wait'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Long
+                        wait</button>
+                    <button onclick="microPollUser(['Order not ready'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Order
+                        not ready</button>
+                    <button onclick="microPollUser(['Wrong items'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Wrong
+                        items</button>
                 </div>
             </div>
 
@@ -629,9 +622,15 @@
                     smooth, relaxed dining experience. Good vibes and great food await you!
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Waiting time'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Waiting time</button>
-                    <button onclick="microPollUser(['Menu confusion'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Menu confusion</button>
-                    <button onclick="microPollUser(['Billing delays'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Billing delays</button>
+                    <button onclick="microPollUser(['Waiting time'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Waiting
+                        time</button>
+                    <button onclick="microPollUser(['Menu confusion'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Menu
+                        confusion</button>
+                    <button onclick="microPollUser(['Billing delays'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Billing
+                        delays</button>
                 </div>
             </div>
 
@@ -650,9 +649,15 @@
                     packed with care. Just sit back and enjoy the flavors!
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Slow delivery'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Slow delivery</button>
-                    <button onclick="microPollUser(['Surge fees'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Surge fees</button>
-                    <button onclick="microPollUser(['Cold food'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Cold food</button>
+                    <button onclick="microPollUser(['Slow delivery'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Slow
+                        delivery</button>
+                    <button onclick="microPollUser(['Surge fees'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Surge
+                        fees</button>
+                    <button onclick="microPollUser(['Cold food'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Cold
+                        food</button>
                 </div>
             </div>
 
@@ -671,8 +676,12 @@
                     events, we cater to every mood and moment with delicious, customizable menu options.
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Coordination issues'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Coordination issues</button>
-                    <button onclick="microPollUser(['Price transparency'])" class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Price transparency</button>
+                    <button onclick="microPollUser(['Coordination issues'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Coordination
+                        issues</button>
+                    <button onclick="microPollUser(['Price transparency'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Price
+                        transparency</button>
                 </div>
             </div>
         </div>
@@ -728,7 +737,7 @@
 
     <!-- issue form -->
     <section class="bg-orange-50 py-20 px-6 md:px-12 lg:px-24">
-        <h1 class="text-5xl font-bold text-center py-1" data-aos="fade-in">Facing Issues ?</h1>
+        <h1 class="text-5xl font-bold text-center py-1" data-aos="fade-in">Facing Issues from other Platforms?</h1>
         <div class="max-w-5xl mx-auto space-y-16">
 
             <!-- User Feedback Structured Form -->
@@ -739,31 +748,46 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Which apps do you use most?</label>
                         <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="Swiggy"> <span>Swiggy</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="Zomato"> <span>Zomato</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="Dunzo"> <span>Dunzo</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="Other"> <span>Other</span></label>
-                        </div>
-            </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">What frustrates you most?</label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Slow delivery"> <span>Slow delivery</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Wrong items"> <span>Wrong items</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Surge fees"> <span>Surge fees</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="App UX"> <span>App UX</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Limited healthy options"> <span>Limited healthy options</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="Swiggy"> <span>Swiggy</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="Zomato"> <span>Zomato</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="Dunzo"> <span>Dunzo</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="Other"> <span>Other</span></label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">What would you improve first?</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">What frustrates you most?</label>
                         <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements" value="Faster delivery"> <span>Faster delivery</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements" value="Pricing transparency"> <span>Pricing transparency</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements" value="Order accuracy"> <span>Order accuracy</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements" value="Health filters"> <span>Health filters</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Slow delivery"> <span>Slow delivery</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Wrong items"> <span>Wrong items</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Surge fees"> <span>Surge fees</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="App UX"> <span>App UX</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Limited healthy options"> <span>Limited healthy
+                                    options</span></label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">What would you improve
+                            first?</label>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
+                                    value="Faster delivery"> <span>Faster delivery</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
+                                    value="Pricing transparency"> <span>Pricing transparency</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
+                                    value="Order accuracy"> <span>Order accuracy</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
+                                    value="Health filters"> <span>Health filters</span></label>
                         </div>
                     </div>
 
@@ -771,7 +795,8 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Order frequency</label>
                             <select name="orderFrequency" class="w-full border rounded-xl p-2">
-                                <option value="<1/month"><1/month</option>
+                                <option value="<1/month">
+                                    <1 /month</option>
                                 <option value="1–3/month">1–3/month</option>
                                 <option value="weekly">weekly</option>
                                 <option value="2+/week">2+/week</option>
@@ -795,16 +820,22 @@
 
                     <div class="grid md:grid-cols-3 gap-4">
                         <input name="city" placeholder="City/Area" class="w-full border rounded-xl p-2" />
-                        <input name="contactEmail" placeholder="Email (for rewards)" class="w-full border rounded-xl p-2" />
-                        <input name="contactPhone" placeholder="Phone (optional)" class="w-full border rounded-xl p-2" />
+                        <input name="contactEmail" placeholder="Email (for rewards)"
+                            class="w-full border rounded-xl p-2" />
+                        <input name="contactPhone" placeholder="Phone (optional)"
+                            class="w-full border rounded-xl p-2" />
                     </div>
 
-                    <textarea name="freeText" class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700" placeholder="Tell us what’s missing or annoying in current apps..."></textarea>
+                    <textarea name="freeText"
+                        class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
+                        placeholder="Tell us what’s missing or annoying in current apps..."></textarea>
 
-                    <label class="inline-flex items-center gap-2 text-sm text-gray-600"><input type="checkbox" name="consent"> I agree to be contacted for early access and rewards.</label>
+                    <label class="inline-flex items-center gap-2 text-sm text-gray-600"><input type="checkbox"
+                            name="consent"> I agree to be contacted for early access and rewards.</label>
 
                     <div class="flex items-center gap-4">
-                        <button id="userFeedbackSubmit" class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
+                        <button id="userFeedbackSubmit"
+                            class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
                         <span id="userFeedbackMsg" class="text-sm font-medium"></span>
                     </div>
                 </form>
@@ -818,24 +849,42 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Current platforms used</label>
                         <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="Swiggy"> <span>Swiggy</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="Zomato"> <span>Zomato</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="MagicPin"> <span>MagicPin</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="Own website"> <span>Own website</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms" value="None"> <span>None</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="Swiggy"> <span>Swiggy</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="Zomato"> <span>Zomato</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="MagicPin"> <span>MagicPin</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="Own website"> <span>Own website</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
+                                    value="None"> <span>None</span></label>
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Biggest challenges</label>
                         <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="High commission"> <span>High commission</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Delayed payouts"> <span>Delayed payouts</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Visibility/discovery"> <span>Visibility/discovery</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Cancellations/returns"> <span>Cancellations/returns</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Menu operations"> <span>Menu operations</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Delivery logistics"> <span>Delivery logistics</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="problemCategories" value="Supply delays"> <span>Supply delays</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="High commission"> <span>High
+                                    commission</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Delayed payouts"> <span>Delayed
+                                    payouts</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Visibility/discovery">
+                                <span>Visibility/discovery</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Cancellations/returns">
+                                <span>Cancellations/returns</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Menu operations"> <span>Menu
+                                    operations</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Delivery logistics"> <span>Delivery
+                                    logistics</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="problemCategories" value="Supply delays"> <span>Supply delays</span></label>
                         </div>
                     </div>
 
@@ -843,7 +892,8 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Sustainable fee %</label>
                             <select name="sustainableFeePct" class="w-full border rounded-xl p-2">
-                                <option value="<10%"><10%</option>
+                                <option value="<10%">
+                                    <10%< /option>
                                 <option value="10–15%">10–15%</option>
                                 <option value=">15%">>15%</option>
                             </select>
@@ -858,7 +908,8 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Gasless, transparent payments?</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Gasless, transparent
+                                payments?</label>
                             <select name="gaslessInterest" class="w-full border rounded-xl p-2">
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
@@ -869,7 +920,8 @@
 
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Automatic loyalty for customers?</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Automatic loyalty for
+                                customers?</label>
                             <select name="loyaltyInterest" class="w-full border rounded-xl p-2">
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
@@ -878,11 +930,16 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Ops you want digitized</label>
                             <div class="flex flex-wrap gap-2">
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds" value="QR menu"> <span>QR menu</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds" value="Takeaway queue"> <span>Takeaway queue</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds" value="Table booking"> <span>Table booking</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds" value="Delivery routing"> <span>Delivery routing</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds" value="Event/catering"> <span>Event/catering</span></label>
+                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
+                                        value="QR menu"> <span>QR menu</span></label>
+                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
+                                        value="Takeaway queue"> <span>Takeaway queue</span></label>
+                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
+                                        value="Table booking"> <span>Table booking</span></label>
+                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
+                                        value="Delivery routing"> <span>Delivery routing</span></label>
+                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
+                                        value="Event/catering"> <span>Event/catering</span></label>
                             </div>
                         </div>
                     </div>
@@ -890,27 +947,41 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Supply chain</label>
                         <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="supplyBottlenecks" value="Inconsistent supplier"> <span>Inconsistent supplier</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="supplyBottlenecks" value="Price volatility"> <span>Price volatility</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="supplyBottlenecks" value="Delivery delays"> <span>Delivery delays</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="supplyBottlenecks" value="Inventory waste"> <span>Inventory waste</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="supplyBottlenecks" value="Inconsistent supplier"> <span>Inconsistent
+                                    supplier</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="supplyBottlenecks" value="Price volatility"> <span>Price
+                                    volatility</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="supplyBottlenecks" value="Delivery delays"> <span>Delivery
+                                    delays</span></label>
+                            <label class="inline-flex items-center gap-2"><input type="checkbox"
+                                    name="supplyBottlenecks" value="Inventory waste"> <span>Inventory
+                                    waste</span></label>
                         </div>
-                        <input name="itemsImpacted" placeholder="Items most impacted (optional)" class="w-full border rounded-xl p-2 mt-2" />
+                        <input name="itemsImpacted" placeholder="Items most impacted (optional)"
+                            class="w-full border rounded-xl p-2 mt-2" />
                     </div>
 
                     <div class="grid md:grid-cols-3 gap-4">
                         <input name="contactName" placeholder="Contact person" class="w-full border rounded-xl p-2" />
-                        <input name="contactEmail" placeholder="Email (required)" class="w-full border rounded-xl p-2" required />
+                        <input name="contactEmail" placeholder="Email (required)" class="w-full border rounded-xl p-2"
+                            required />
                         <input name="contactPhone" placeholder="Phone" class="w-full border rounded-xl p-2" />
                     </div>
 
                     <input name="city" placeholder="City/Area" class="w-full border rounded-xl p-2" />
-                    <textarea name="freeText" class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700" placeholder="What must improve for you to switch/try Nazdeeki?"></textarea>
+                    <textarea name="freeText"
+                        class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
+                        placeholder="What must improve for you to switch/try Nazdeeki?"></textarea>
 
-                    <label class="inline-flex items-center gap-2 text-sm text-gray-600"><input type="checkbox" name="consent"> I agree to be contacted for demos and onboarding.</label>
+                    <label class="inline-flex items-center gap-2 text-sm text-gray-600"><input type="checkbox"
+                            name="consent"> I agree to be contacted for demos and onboarding.</label>
 
                     <div class="flex items-center gap-4">
-                        <button id="sellerFeedbackSubmit" class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
+                        <button id="sellerFeedbackSubmit"
+                            class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
                         <span id="sellerFeedbackMsg" class="text-sm font-medium"></span>
                     </div>
                 </form>
@@ -920,7 +991,7 @@
     </section>
 
     <!-- Blogs Section -->
-    <section id="blogs" class="py-12 scroll-mt-28" data-aos="fade-up">
+    <!-- <section id="blogs" class="py-12 scroll-mt-28" data-aos="fade-up">
         <div class="max-w-7xl px-4 mx-auto">
             <div class="flex justify-center">
                 <h2
@@ -930,7 +1001,6 @@
             </div>
 
             <div class="flex max-w-5xl mx-auto overflow-x-scroll gap-6 hide-scrollbar px-2">
-                <!-- Blog Card 1 -->
                 <a href="#">
                     <div class="min-w-[350px] h-[200px] flex flex-col justify-end p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
                         style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
@@ -939,7 +1009,6 @@
                     </div>
                 </a>
 
-                <!-- Blog Card 2 -->
                 <a href="#">
                     <div class="min-w-[350px] h-[200px] flex flex-col justify-end p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
                         style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
@@ -948,7 +1017,6 @@
                     </div>
                 </a>
 
-                <!-- View All Card -->
                 <a href="#">
                     <div class="min-w-[350px] h-[200px] flex items-center justify-center p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
                         style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
@@ -957,7 +1025,7 @@
                 </a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Our Mission Section -->
     <section class="bg-[#fff7f0] px-8 py-16" data-aos="fade-up">
@@ -1005,8 +1073,8 @@
                 <!-- Right Side Image -->
                 <div class="flex-1 flex justify-center">
                     <!-- Replace with your iPhone screenshot -->
-                    <img src="./Assets/food wallpaper for blogs.jpg" alt="App Screenshot"
-                        class="w-[250px] md:w-[300px] rounded-xl  shadow-lg" />
+                    <img src="./Assets/nazdeeki logo.png" alt="App Screenshot"
+                        class="w-[250px] md:w-[300px] rounded-xl " />
                 </div>
             </div>
         </section>
@@ -1035,10 +1103,6 @@
             <a href="#" class="hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
-        <!-- Logo Image -->
-        <div class="w-full my-4">
-            <img src="./Assets/NazdeekiBigWallpaper.png" alt="Nazdeeki Logo" class="w-full object-contain mx-auto" />
-        </div>
     </section>
 
 
@@ -1135,7 +1199,7 @@
                     // Success
                     message.className = 'mt-4 text-sm font-medium text-green-600';
                     message.textContent = `Thank you${data.name ? ', ' + data.name.split(' ')[0] : ''}! You've been added to the waitlist.`;
-                    
+
                     // Update counter
                     currentCount = data.count;
                     document.getElementById("counter").textContent = currentCount.toLocaleString();
@@ -1153,7 +1217,7 @@
         // Handle form submission
         document.getElementById('earlyAccessForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const emailInput = document.getElementById('emailInput');
             const submitBtn = document.getElementById('submitBtn');
             const message = document.getElementById('message');
@@ -1182,7 +1246,7 @@
                     message.className = 'mt-4 text-sm font-medium text-green-600';
                     message.textContent = 'Thank you! You\'ve been added to the waitlist.';
                     emailInput.value = '';
-                    
+
                     // Update counter
                     currentCount = data.count;
                     document.getElementById("counter").textContent = currentCount.toLocaleString();
@@ -1218,7 +1282,7 @@
                     if (el) el.checked = true;
                 });
                 document.getElementById('user-feedback').scrollIntoView({ behavior: 'smooth' });
-            } catch {}
+            } catch { }
         }
 
         // Utility: get selected values
