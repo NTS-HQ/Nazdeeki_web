@@ -171,15 +171,15 @@
                     </p>
 
                     <!-- Input -->
-                    <form class="mt-6 flex flex-col gap-4">
+                    <form id="earlyAccessForm" class="mt-6 flex flex-col gap-4">
                         <div class="rounded-full shadow-[inset_6px_6px_12px_#e6e0d6,inset_-6px_-6px_12px_#ffffff]">
-                            <input type="email" placeholder="Enter your email"
+                            <input id="emailInput" type="email" placeholder="Enter your email"
                                 class="w-full mx-auto border-2 bg-[#fdf7ee] rounded-full px-1 text-center md:px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none"
                                 required>
                         </div>
 
                         <!-- Button -->
-                        <button type="submit"
+                        <button id="submitBtn" type="submit"
                             class="rounded-full mx-auto py-2 px-8 border-2 border-gray-100 font-semibold text-orange-500 bg-[#fdf7ee] shadow-[6px_6px_12px_#e6e0d6,-6px_-6px_12px_#ffffff] hover:shadow-[inset_6px_6px_12px_#e6e0d6,inset_-6px_-6px_12px_#ffffff] transition">
                             Get Notified
                         </button>
@@ -1265,7 +1265,7 @@
             } finally {
                 // Re-enable button
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Get early access';
+                submitBtn.textContent = 'Get Notified';
             }
         });
 
