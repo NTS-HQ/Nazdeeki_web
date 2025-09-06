@@ -4,3 +4,5 @@ emails.csv
 seller_feedback.csv
 user_feedback.csv
 emails.csv
+*.json
+!package.json

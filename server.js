@@ -3,12 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const {OAuth2Client} = require('google-auth-library');
+const { google } = require('googleapis');
 
 const app = express();
 const PORT = 3000;
 const CSV_FILE = path.join(__dirname, 'emails.csv');
 const USER_FEEDBACK_FILE = path.join(__dirname, 'user_feedback.csv');
 const SELLER_FEEDBACK_FILE = path.join(__dirname, 'seller_feedback.csv');
+const GOOGLE_SHEETS_SPREADSHEET_ID = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || '11PRs7X6ZJFNQkPZXepJ6E7qJ0hyd5KPa_Xuz1QKceqk';
 
 // Replace with your Google OAuth client ID
 const GOOGLE_CLIENT_ID = '858424434372-q21o2qfqn4c6o2ls72ns52tc92ljtq20.apps.googleusercontent.com';
@@ -36,27 +38,72 @@ if (!fs.existsSync(SELLER_FEEDBACK_FILE)) {
     );
 }
 
-app.post('/api/subscribe', (req, res) => {
-    const { email, name = '', method = 'manual' } = req.body;
-    
-    if (!email || !email.includes('@')) {
-        return res.status(400).json({ error: 'Valid email required' });
-    }
+// Google Sheets client for waitlist emails only
+const SERVICE_ACCOUNT_KEY_FILE = process.env.GOOGLE_APPLICATION_CREDENTIALS || path.join(__dirname, 'nazdeeki-maps-d9c8e0c53f72.json');
+const sheetsAuth = new google.auth.GoogleAuth({
+    keyFile: SERVICE_ACCOUNT_KEY_FILE,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets']
+});
 
-    const existingData = fs.readFileSync(CSV_FILE, 'utf8');
-    if (existingData.includes(email)) {
-        return res.status(400).json({ error: 'Email already subscribed' });
-    }
+async function getSheetsClient() {
+    const auth = await sheetsAuth.getClient();
+    return google.sheets({ version: 'v4', auth });
+}
 
-    const timestamp = new Date().toISOString();
-    // Ensure proper CSV formatting with newline
-    const csvRow = `"${email}","${name}","${method}","${timestamp}"\n`;
-    
-    // Append to file, ensuring each entry is on a new line
-    fs.appendFileSync(CSV_FILE, csvRow, 'utf8');
-    
-    const count = getEmailCount();
-    res.json({ success: true, count });
+async function appendWaitlistRow(email, name, method, timestamp) {
+    const sheets = await getSheetsClient();
+    await sheets.spreadsheets.values.append({
+        spreadsheetId: GOOGLE_SHEETS_SPREADSHEET_ID,
+        range: 'A:D',
+        valueInputOption: 'USER_ENTERED',
+        insertDataOption: 'INSERT_ROWS',
+        requestBody: { values: [[email, name, method, timestamp]] }
+    });
+}
+
+async function emailExistsInSheet(email) {
+    const sheets = await getSheetsClient();
+    const resp = await sheets.spreadsheets.values.get({
+        spreadsheetId: GOOGLE_SHEETS_SPREADSHEET_ID,
+        range: 'A:A'
+    });
+    const rows = resp.data.values || [];
+    // Skip header row
+    for (let i = 1; i < rows.length; i++) {
+        const cell = (rows[i] && rows[i][0]) ? String(rows[i][0]).trim().toLowerCase() : '';
+        if (cell && cell === String(email).trim().toLowerCase()) return true;
+    }
+    return false;
+}
+
+async function getWaitlistCountFromSheet() {
+    const sheets = await getSheetsClient();
+    const resp = await sheets.spreadsheets.values.get({
+        spreadsheetId: GOOGLE_SHEETS_SPREADSHEET_ID,
+        range: 'A:A'
+    });
+    const rows = resp.data.values || [];
+    return Math.max(0, rows.length - 1);
+}
+
+app.post('/api/subscribe', async (req, res) => {
+    try {
+        const { email, name = '', method = 'manual' } = req.body;
+        if (!email || !email.includes('@')) {
+            return res.status(400).json({ error: 'Valid email required' });
+        }
+        const exists = await emailExistsInSheet(email);
+        if (exists) {
+            return res.status(400).json({ error: 'Email already subscribed' });
+        }
+        const timestamp = new Date().toISOString();
+        await appendWaitlistRow(email, name, method, timestamp);
+        const count = await getWaitlistCountFromSheet();
+        return res.json({ success: true, count });
+    } catch (error) {
+        console.error('Subscribe error:', error);
+        return res.status(500).json({ error: 'Server error' });
+    }
 });
 
 app.post('/api/google-signup', async (req, res) => {
@@ -73,21 +120,16 @@ app.post('/api/google-signup', async (req, res) => {
         const email = payload.email;
         const name = payload.name || '';
         
-        // Check if email already exists
-        const existingData = fs.readFileSync(CSV_FILE, 'utf8');
-        if (existingData.includes(email)) {
+        // Check if email already exists (Google Sheets)
+        const exists = await emailExistsInSheet(email);
+        if (exists) {
             return res.status(400).json({ error: 'Email already subscribed' });
         }
 
-        // Save to CSV
+        // Append to Google Sheets
         const timestamp = new Date().toISOString();
-        // Ensure proper CSV formatting with newline
-        const csvRow = `"${email}","${name}","google","${timestamp}"\n`;
-        
-        // Append to file, ensuring each entry is on a new line
-        fs.appendFileSync(CSV_FILE, csvRow, 'utf8');
-        
-        const count = getEmailCount();
+        await appendWaitlistRow(email, name, 'google', timestamp);
+        const count = await getWaitlistCountFromSheet();
         res.json({ success: true, count, name });
         
     } catch (error) {
@@ -96,9 +138,14 @@ app.post('/api/google-signup', async (req, res) => {
     }
 });
 
-app.get('/api/count', (req, res) => {
-    const count = getEmailCount();
-    res.json({ count });
+app.get('/api/count', async (req, res) => {
+    try {
+        const count = await getWaitlistCountFromSheet();
+        res.json({ count });
+    } catch (error) {
+        console.error('Count error:', error);
+        res.json({ count: 0 });
+    }
 });
 
 app.post('/api/feedback', (req, res) => {
@@ -180,15 +227,7 @@ app.post('/api/feedback', (req, res) => {
     }
 });
 
-function getEmailCount() {
-    try {
-        const data = fs.readFileSync(CSV_FILE, 'utf8');
-        const lines = data.trim().split('\n');
-        return Math.max(0, lines.length - 1);
-    } catch (error) {
-        return 0;
-    }
-}
+// getEmailCount no longer used (replaced by Google Sheets)
 
 function csvEscape(value) {
     if (value === undefined || value === null) return '""';
