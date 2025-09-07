@@ -10,8 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Database connection
+const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://postgres:OTpRWzCKVGPRXBymjjluRlyAzqsfueSj@turntable.proxy.rlwy.net:49122/railway';
+
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: DATABASE_URL,
     ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
@@ -26,7 +28,13 @@ app.use(express.static(__dirname));
 
 // Initialize database tables
 async function initializeDatabase() {
+    console.log('Connecting to database:', DATABASE_URL.replace(/:[^:]*@/, ':****@'));
     try {
+        // Test connection first
+        const client = await pool.connect();
+        console.log('Database connection successful!');
+        client.release();
+        
         // Create emails table
         await pool.query(`
             CREATE TABLE IF NOT EXISTS emails (
