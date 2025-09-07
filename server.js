@@ -16,6 +16,7 @@ const client = new OAuth2Client(GOOGLE_CLIENT_ID);
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
 if (!fs.existsSync(CSV_FILE)) {
@@ -25,14 +26,14 @@ if (!fs.existsSync(CSV_FILE)) {
 if (!fs.existsSync(USER_FEEDBACK_FILE)) {
     fs.writeFileSync(
         USER_FEEDBACK_FILE,
-        'platforms,problemCategories,improvements,orderFrequency,qrComfort,preOrderDineIn,city,contactEmail,contactPhone,freeText,consent,timestamp\n'
+        'feedback,timestamp\n'
     );
 }
 
 if (!fs.existsSync(SELLER_FEEDBACK_FILE)) {
     fs.writeFileSync(
         SELLER_FEEDBACK_FILE,
-        'platforms,problemCategories,sustainableFeePct,payoutTime,gaslessInterest,loyaltyInterest,opsNeeds,supplyBottlenecks,itemsImpacted,city,contactName,contactEmail,contactPhone,freeText,consent,timestamp\n'
+        'feedback,timestamp\n'
     );
 }
 
@@ -103,75 +104,38 @@ app.get('/api/count', (req, res) => {
 
 app.post('/api/feedback', (req, res) => {
     try {
-        const {
-            audienceType = '',
-            platforms = [],
-            problemCategories = [],
-            improvements = [],
-            orderFrequency = '',
-            qrComfort = '',
-            preOrderDineIn = '',
-            city = '',
-            contactEmail = '',
-            contactPhone = '',
-            contactName = '',
-            sustainableFeePct = '',
-            payoutTime = '',
-            gaslessInterest = '',
-            loyaltyInterest = '',
-            opsNeeds = [],
-            supplyBottlenecks = [],
-            itemsImpacted = '',
-            freeText = '',
-            consent = false
-        } = req.body || {};
+        let audienceType = '';
+        let freeText = '';
+
+        // Support JSON, urlencoded and raw-string bodies; accept common field aliases
+        if (typeof req.body === 'string') {
+            // Try to parse JSON string; if fails, treat entire body as feedback text
+            try {
+                const parsed = JSON.parse(req.body);
+                audienceType = parsed.audienceType || '';
+                freeText = parsed.freeText || parsed.feedback || parsed.message || '';
+            } catch {
+                freeText = req.body;
+            }
+        } else {
+            audienceType = (req.body && (req.body.audienceType || '')) || '';
+            freeText = (req.body && (req.body.freeText || req.body.feedback || req.body.message || '')) || '';
+        }
 
         if (!audienceType) {
             return res.status(400).json({ error: 'audienceType required' });
         }
-
-        if (audienceType === 'seller' && !contactEmail && !contactPhone) {
-            return res.status(400).json({ error: 'Contact email or phone required' });
+        if (!freeText || String(freeText).trim().length === 0) {
+            return res.status(400).json({ error: 'feedback text required' });
         }
 
         const timestamp = new Date().toISOString();
+        const row = [csvEscape(String(freeText).trim()), csvEscape(timestamp)].join(',') + '\n';
 
         if (audienceType === 'seller') {
-            const rowSeller = [
-                csvEscape(Array.isArray(platforms) ? platforms.join(';') : platforms),
-                csvEscape(Array.isArray(problemCategories) ? problemCategories.join(';') : problemCategories),
-                csvEscape(sustainableFeePct),
-                csvEscape(payoutTime),
-                csvEscape(gaslessInterest),
-                csvEscape(loyaltyInterest),
-                csvEscape(Array.isArray(opsNeeds) ? opsNeeds.join(';') : opsNeeds),
-                csvEscape(Array.isArray(supplyBottlenecks) ? supplyBottlenecks.join(';') : supplyBottlenecks),
-                csvEscape(itemsImpacted),
-                csvEscape(city),
-                csvEscape(contactName),
-                csvEscape(contactEmail),
-                csvEscape(contactPhone),
-                csvEscape(freeText),
-                csvEscape(consent ? 'yes' : 'no'),
-                csvEscape(timestamp)
-            ].join(',') + '\n';
-            fs.appendFileSync(SELLER_FEEDBACK_FILE, rowSeller, 'utf8');
+            fs.appendFileSync(SELLER_FEEDBACK_FILE, row, 'utf8');
         } else {
-            const rowUser = [
-                csvEscape(Array.isArray(platforms) ? platforms.join(';') : platforms),
-                csvEscape(Array.isArray(problemCategories) ? problemCategories.join(';') : problemCategories),
-                csvEscape(Array.isArray(improvements) ? improvements.join(';') : improvements),
-                csvEscape(orderFrequency),
-                csvEscape(qrComfort),
-                csvEscape(preOrderDineIn),
-                csvEscape(city),
-                csvEscape(contactEmail),
-                csvEscape(contactPhone),
-                csvEscape(freeText),
-                csvEscape(consent ? 'yes' : 'no'),
-                csvEscape(timestamp)
-            ].join(',') + '\n';
-            fs.appendFileSync(USER_FEEDBACK_FILE, rowUser, 'utf8');
+            fs.appendFileSync(USER_FEEDBACK_FILE, row, 'utf8');
         }
         return res.json({ success: true });
     } catch (error) {
