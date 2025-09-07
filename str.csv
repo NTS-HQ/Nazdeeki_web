@@ -1,0 +1,12 @@
+"table_schema","table_name","ordinal_position","column_name","data_type","is_nullable","is_primary_key","foreign_key_references_table","foreign_key_references_column"
+"public","emails",1,"id","integer","NO","YES",NULL,NULL
+"public","emails",2,"email","character varying","NO","NO",NULL,NULL
+"public","emails",3,"name","character varying","YES","NO",NULL,NULL
+"public","emails",4,"signup_method","character varying","YES","NO",NULL,NULL
+"public","emails",5,"timestamp","timestamp without time zone","YES","NO",NULL,NULL
+"public","seller_feedback",1,"id","integer","NO","YES",NULL,NULL
+"public","seller_feedback",2,"feedback","text","NO","NO",NULL,NULL
+"public","seller_feedback",3,"timestamp","timestamp without time zone","YES","NO",NULL,NULL
+"public","user_feedback",1,"id","integer","NO","YES",NULL,NULL
+"public","user_feedback",2,"feedback","text","NO","NO",NULL,NULL
+"public","user_feedback",3,"timestamp","timestamp without time zone","YES","NO",NULL,NULL

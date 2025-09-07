@@ -174,15 +174,15 @@
                     </p>
 
                     <!-- Input -->
-                    <form class="mt-6 flex flex-col gap-4">
+                    <form id="earlyAccessForm" class="mt-6 flex flex-col gap-4">
                         <div class="rounded-full shadow-[inset_6px_6px_12px_#e6e0d6,inset_-6px_-6px_12px_#ffffff]">
-                            <input type="email" placeholder="Enter your email"
+                            <input id="emailInput" type="email" placeholder="Enter your email"
                                 class="w-full mx-auto border-2 bg-[#fdf7ee] rounded-full px-1 text-center md:px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none"
                                 required>
                         </div>
 
                         <!-- Button -->
-                        <button type="submit"
+                        <button id="submitBtn" type="submit"
                             class="rounded-full mx-auto py-2 px-8 border-2 border-gray-100 font-semibold text-orange-500 bg-[#fdf7ee] shadow-[6px_6px_12px_#e6e0d6,-6px_-6px_12px_#ffffff] hover:shadow-[inset_6px_6px_12px_#e6e0d6,inset_-6px_-6px_12px_#ffffff] transition">
                             Get Notified
                         </button>
@@ -583,14 +583,11 @@
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
                     <button onclick="microPollUser(['QR doesn\'t work'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">QR
-                        doesn't work</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Instant QR</button>
                     <button onclick="microPollUser(['Menu outdated'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Menu
-                        outdated</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Always Fresh Menus</button>
                     <button onclick="microPollUser(['App UX'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">App
-                        UX</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Smooth</button>
                 </div>
             </div>
 
@@ -609,14 +606,12 @@
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
                     <button onclick="microPollUser(['Long wait'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Long
-                        wait</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Express Service</button>
                     <button onclick="microPollUser(['Order not ready'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Order
-                        not ready</button>
-                    <button onclick="microPollUser(['Wrong items'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Always Ready On-Time</button>
+                    <!--<button onclick="microPollUser(['Wrong items'])"
                         class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Wrong
-                        items</button>
+                        items</button> -->
                 </div>
             </div>
 
@@ -634,14 +629,12 @@
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
                     <button onclick="microPollUser(['Waiting time'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Waiting
-                        time</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Skip All Waits</button>
                     <button onclick="microPollUser(['Menu confusion'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Menu
-                        confusion</button>
-                    <button onclick="microPollUser(['Billing delays'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Crystal Clear Menus</button>
+                    <!--<button onclick="microPollUser(['Billing delays'])"
                         class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Billing
-                        delays</button>
+                        delays</button> -->
                 </div>
             </div>
 
@@ -660,14 +653,12 @@
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
                     <button onclick="microPollUser(['Slow delivery'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Slow
-                        delivery</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Fair Pricing Always</button>
                     <button onclick="microPollUser(['Surge fees'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Surge
-                        fees</button>
-                    <button onclick="microPollUser(['Cold food'])"
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Fully Trackable</button>
+                    <!--<button onclick="microPollUser(['Cold food'])"
                         class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Cold
-                        food</button>
+                        food</button> -->
                 </div>
             </div>
 
@@ -686,11 +677,9 @@
                 </p>
                 <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
                     <button onclick="microPollUser(['Coordination issues'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Coordination
-                        issues</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Flawless Coordination</button>
                     <button onclick="microPollUser(['Price transparency'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Price
-                        transparency</button>
+                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Professional Service</button>
                 </div>
             </div>
         </div>
@@ -728,14 +717,14 @@
             </div>
 
             <!-- Call-to-Action Buttons -->
-            <div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
+            <!--<div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
                 <a href="#seller-feedback"
                     class="bg-black text-white text-xl px-6 py-3 rounded-full hover:bg-gray-800 hover:scale-90 transition">Join
                     Us</a>
                 <a href="#seller-feedback"
                     class="bg-black text-white text-xl px-6 py-3 rounded-full hover:bg-gray-800 hover:scale-90 transition">Book
                     a Demo</a>
-            </div>
+            </div> -->
 
             <!-- Captivating Line -->
             <p class="mt-8 text-lg font-medium text-gray-700 max-w-2xl mx-auto">
@@ -752,96 +741,12 @@
             <!-- User Feedback Structured Form -->
             <div id="user-feedback" class="bg-white rounded-2xl shadow p-8" data-aos="fade-up">
                 <h3 class="text-2xl font-semibold text-gray-900 mb-2">💬 For Users</h3>
-                <p class="text-gray-700 mb-6">Help us fix what bothers you in current apps like Swiggy/Zomato.</p>
+                <p class="text-gray-700 mb-6">Share your recommendations and problems you face with today's food ordering and supply chain.</p>
                 <form id="userFeedbackForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Which apps do you use most?</label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="Swiggy"> <span>Swiggy</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="Zomato"> <span>Zomato</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="Dunzo"> <span>Dunzo</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="Other"> <span>Other</span></label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">What frustrates you most?</label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Slow delivery"> <span>Slow delivery</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Wrong items"> <span>Wrong items</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Surge fees"> <span>Surge fees</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="App UX"> <span>App UX</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Limited healthy options"> <span>Limited healthy
-                                    options</span></label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">What would you improve
-                            first?</label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
-                                    value="Faster delivery"> <span>Faster delivery</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
-                                    value="Pricing transparency"> <span>Pricing transparency</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
-                                    value="Order accuracy"> <span>Order accuracy</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="improvements"
-                                    value="Health filters"> <span>Health filters</span></label>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Order frequency</label>
-                            <select name="orderFrequency" class="w-full border rounded-xl p-2">
-                                <option value="<1/month">
-                                    <1 /month</option>
-                                <option value="1–3/month">1–3/month</option>
-                                <option value="weekly">weekly</option>
-                                <option value="2+/week">2+/week</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Comfort with QR menus</label>
-                            <select name="qrComfort" class="w-full border rounded-xl p-2">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Pre-order for dine-in?</label>
-                            <select name="preOrderDineIn" class="w-full border rounded-xl p-2">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <input name="city" placeholder="City/Area" class="w-full border rounded-xl p-2" />
-                        <input name="contactEmail" placeholder="Email (for rewards)"
-                            class="w-full border rounded-xl p-2" />
-                        <input name="contactPhone" placeholder="Phone (optional)"
-                            class="w-full border rounded-xl p-2" />
-                    </div>
-
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Your message</label>
                     <textarea name="freeText"
-                        class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
-                        placeholder="Tell us what’s missing or annoying in current apps..."></textarea>
-
-                    <label class="inline-flex items-center gap-2 text-sm text-gray-600"><input type="checkbox"
-                            name="consent"> I agree to be contacted for early access and rewards.</label>
-
+                        class="w-full h-32 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
+                        placeholder="Tell us what could be better in today’s food ordering and supply chain..." required></textarea>
                     <div class="flex items-center gap-4">
                         <button id="userFeedbackSubmit"
                             class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
@@ -853,141 +758,12 @@
             <!-- Seller Feedback Structured Form -->
             <div id="seller-feedback" class="bg-white rounded-2xl shadow p-8" data-aos="fade-up" data-aos-delay="100">
                 <h3 class="text-2xl font-semibold text-gray-900 mb-2">🏪 For Restaurant Owners</h3>
-                <p class="text-gray-700 mb-6">Tell us what must improve for you to switch or try Nazdeeki.</p>
+                <p class="text-gray-700 mb-6">Tell us what must improve in platforms or supply chain for you to switch or try Nazdeeki.</p>
                 <form id="sellerFeedbackForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Current platforms used</label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="Swiggy"> <span>Swiggy</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="Zomato"> <span>Zomato</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="MagicPin"> <span>MagicPin</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="Own website"> <span>Own website</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox" name="platforms"
-                                    value="None"> <span>None</span></label>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Biggest challenges</label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="High commission"> <span>High
-                                    commission</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Delayed payouts"> <span>Delayed
-                                    payouts</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Visibility/discovery">
-                                <span>Visibility/discovery</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Cancellations/returns">
-                                <span>Cancellations/returns</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Menu operations"> <span>Menu
-                                    operations</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Delivery logistics"> <span>Delivery
-                                    logistics</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="problemCategories" value="Supply delays"> <span>Supply delays</span></label>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Sustainable fee %</label>
-                            <select name="sustainableFeePct" class="w-full border rounded-xl p-2">
-                                <option value="<10%">
-                                    <10%< /option>
-                                <option value="10–15%">10–15%</option>
-                                <option value=">15%">>15%</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Average payout time</label>
-                            <select name="payoutTime" class="w-full border rounded-xl p-2">
-                                <option value="Same-day">Same-day</option>
-                                <option value="2–3 days">2–3 days</option>
-                                <option value="weekly">weekly</option>
-                                <option value=">weekly">>weekly</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Gasless, transparent
-                                payments?</label>
-                            <select name="gaslessInterest" class="w-full border rounded-xl p-2">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                                <option value="Unsure">Unsure</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Automatic loyalty for
-                                customers?</label>
-                            <select name="loyaltyInterest" class="w-full border rounded-xl p-2">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Ops you want digitized</label>
-                            <div class="flex flex-wrap gap-2">
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
-                                        value="QR menu"> <span>QR menu</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
-                                        value="Takeaway queue"> <span>Takeaway queue</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
-                                        value="Table booking"> <span>Table booking</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
-                                        value="Delivery routing"> <span>Delivery routing</span></label>
-                                <label class="inline-flex items-center gap-2"><input type="checkbox" name="opsNeeds"
-                                        value="Event/catering"> <span>Event/catering</span></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Supply chain</label>
-                        <div class="flex flex-wrap gap-2">
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="supplyBottlenecks" value="Inconsistent supplier"> <span>Inconsistent
-                                    supplier</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="supplyBottlenecks" value="Price volatility"> <span>Price
-                                    volatility</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="supplyBottlenecks" value="Delivery delays"> <span>Delivery
-                                    delays</span></label>
-                            <label class="inline-flex items-center gap-2"><input type="checkbox"
-                                    name="supplyBottlenecks" value="Inventory waste"> <span>Inventory
-                                    waste</span></label>
-                        </div>
-                        <input name="itemsImpacted" placeholder="Items most impacted (optional)"
-                            class="w-full border rounded-xl p-2 mt-2" />
-                    </div>
-
-                    <div class="grid md:grid-cols-3 gap-4">
-                        <input name="contactName" placeholder="Contact person" class="w-full border rounded-xl p-2" />
-                        <input name="contactEmail" placeholder="Email (required)" class="w-full border rounded-xl p-2"
-                            required />
-                        <input name="contactPhone" placeholder="Phone" class="w-full border rounded-xl p-2" />
-                    </div>
-
-                    <input name="city" placeholder="City/Area" class="w-full border rounded-xl p-2" />
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Your message</label>
                     <textarea name="freeText"
-                        class="w-full h-28 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
-                        placeholder="What must improve for you to switch/try Nazdeeki?"></textarea>
-
-                    <label class="inline-flex items-center gap-2 text-sm text-gray-600"><input type="checkbox"
-                            name="consent"> I agree to be contacted for demos and onboarding.</label>
-
+                        class="w-full h-32 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
+                        placeholder="What must improve for you to switch/try Nazdeeki?" required></textarea>
                     <div class="flex items-center gap-4">
                         <button id="sellerFeedbackSubmit"
                             class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
@@ -1268,11 +1044,11 @@
             } finally {
                 // Re-enable button
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Get early access';
+                submitBtn.textContent = 'Get Notified';
             }
         });
 
-        // Micro-poll: prefill user form choices and scroll
+        // Micro-poll: prefill user textarea and scroll
         function microPollUser(tags) {
             try {
                 const form = document.getElementById('userFeedbackForm');
@@ -1280,21 +1056,14 @@
                     window.location.hash = '#user-feedback';
                     return;
                 }
-                // Clear previous problemCategories
-                form.querySelectorAll('input[name="problemCategories"]').forEach(cb => cb.checked = false);
-                // Apply tags to matching problemCategories or improvements if relevant
-                tags.forEach(tag => {
-                    const selector = `input[name="problemCategories"][value="${tag}"]`;
-                    const el = form.querySelector(selector);
-                    if (el) el.checked = true;
-                });
+                const textarea = form.querySelector('textarea[name="freeText"]');
+                const suggestion = `Issues: ${tags.join(', ')}`;
+                if (textarea) {
+                    const current = (textarea.value || '').trim();
+                    textarea.value = current ? `${current}\n${suggestion}` : suggestion;
+                }
                 document.getElementById('user-feedback').scrollIntoView({ behavior: 'smooth' });
             } catch { }
-        }
-
-        // Utility: get selected values
-        function getSelectedValues(form, name) {
-            return Array.from(form.querySelectorAll(`input[name="${name}"]:checked`)).map(i => i.value);
         }
 
         // Submit handlers for structured forms
@@ -1305,20 +1074,15 @@
             msg.className = 'text-sm font-medium';
             msg.textContent = '';
 
-            const payload = {
-                audienceType: 'user',
-                platforms: getSelectedValues(form, 'platforms'),
-                problemCategories: getSelectedValues(form, 'problemCategories'),
-                improvements: getSelectedValues(form, 'improvements'),
-                orderFrequency: form.orderFrequency?.value || '',
-                qrComfort: form.qrComfort?.value || '',
-                preOrderDineIn: form.preOrderDineIn?.value || '',
-                city: form.city?.value?.trim() || '',
-                contactEmail: form.contactEmail?.value?.trim() || '',
-                contactPhone: form.contactPhone?.value?.trim() || '',
-                freeText: form.freeText?.value?.trim() || '',
-                consent: form.consent?.checked || false
-            };
+            const textareaUser = form.querySelector('textarea[name="freeText"]');
+            const freeText = textareaUser && typeof textareaUser.value === 'string' ? textareaUser.value.trim() : '';
+            if (!freeText) {
+                msg.className = 'text-sm font-medium text-red-600';
+                msg.textContent = 'Please enter your message.';
+                return;
+            }
+
+            const payload = { audienceType: 'user', freeText };
 
             try {
                 const res = await fetch('/api/feedback', {
@@ -1344,30 +1108,15 @@
             msg.className = 'text-sm font-medium';
             msg.textContent = '';
 
-            const payload = {
-                audienceType: 'seller',
-                platforms: getSelectedValues(form, 'platforms'),
-                problemCategories: getSelectedValues(form, 'problemCategories'),
-                sustainableFeePct: form.sustainableFeePct?.value || '',
-                payoutTime: form.payoutTime?.value || '',
-                gaslessInterest: form.gaslessInterest?.value || '',
-                loyaltyInterest: form.loyaltyInterest?.value || '',
-                opsNeeds: getSelectedValues(form, 'opsNeeds'),
-                supplyBottlenecks: getSelectedValues(form, 'supplyBottlenecks'),
-                itemsImpacted: form.itemsImpacted?.value?.trim() || '',
-                contactName: form.contactName?.value?.trim() || '',
-                contactEmail: form.contactEmail?.value?.trim() || '',
-                contactPhone: form.contactPhone?.value?.trim() || '',
-                city: form.city?.value?.trim() || '',
-                freeText: form.freeText?.value?.trim() || '',
-                consent: form.consent?.checked || false
-            };
-
-            if (!payload.contactEmail && !payload.contactPhone) {
+            const textareaSeller = form.querySelector('textarea[name="freeText"]');
+            const freeText = textareaSeller && typeof textareaSeller.value === 'string' ? textareaSeller.value.trim() : '';
+            if (!freeText) {
                 msg.className = 'text-sm font-medium text-red-600';
-                msg.textContent = 'Please enter an email or phone.';
+                msg.textContent = 'Please enter your message.';
                 return;
             }
+
+            const payload = { audienceType: 'seller', freeText };
 
             try {
                 const res = await fetch('/api/feedback', {
@@ -1378,7 +1127,7 @@
                 const data = await res.json();
                 if (!res.ok) throw new Error(data.error || 'Failed');
                 msg.className = 'text-sm font-medium text-green-600';
-                msg.textContent = 'Thanks! We will reach out for a demo.';
+                msg.textContent = 'Thanks! Your feedback is saved.';
                 form.reset();
             } catch (err) {
                 msg.className = 'text-sm font-medium text-red-600';

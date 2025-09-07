@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nazdeeki-maps",
+  "private_key_id": "d9c8e0c53f727e3e242517b21ff2ae0a7452e720",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDN81GAWxL1XAJ2\nTbyDwm0SuSWySI1Yo8Jg5TcvLSP+QfVjZP/DXXXQCIjHFpzTe4BcTT4ZkBQSAjpY\nzkNJGvHATqCNY7HsBOn8Dozp6jE8Kw/tUrdBvQRSqwlrTKdPoDFZNKXAnwmqobP0\nWobOFyLUFHjgsKeEMVWubFWuEnhnr2Q7LnkR0/MH29HJJBKszouVDvh2BdrkXJiI\nacgtbZSP9Awlb2/SFdM81vKpgBzuYQLKnSlAmXFSzlRPtafjsYmZ6pHefoEj8Ybv\nZvK2z9nvii86O/dXwFFXXNMg23ObuHPfGb/3dKRdU5RxCKF17mFT9AOLxZ3yqDvv\nOILNysZBAgMBAAECggEABzo1F53qlQdy8yugdFfB++SZMu/anPwXNc8JcBuDjjhK\nmB+63YRlvmSURzdPDtlgTGzuA1fj6mtfWI85e4LpbbQcrIWNgIC+JNkuXwWXz3qb\n4xpSYclUMeH8cUJmAzR2EuE2+WLjZBRrZCV6olgbwelLgigU4t3X2ciFu7d8d/f2\nvL/eJ1COci+b6rmcsbYGXs7zKD7PyQiQ+7WTNwPylrKBVAEnNPY9KvLiPUhygUCn\nvAfTEwXMzyCWMNX5RlWN47tLawXQJr9ACvMd/NH+trS/RFzTa4zDjLE6KS4MJyWV\nFM/n3HEnN/CdQnjozyqaa+2yelAZi+wRZOqIbCFIoQKBgQDn3ez0eoC2lKFArRNC\n4dpLVHfAxVV/wypZHb3pgNOmdoxp68qTyMQJZnE1/0PQBy9xwM+I9PJof0PHxe17\ne33ns/cQvTKugIKLrq3UO66f/uzngTtnF+rEc4hPevfPtHsgOeGAD1a3p7JVM3wI\njRytzErmx3uMBGpmFs9BnaTncQKBgQDjYtn7c0dogIY0aBLTAz0mdfTKqvIqMrry\n7f9Knw8Zuw8OPKbFHxnBzWAi9+/v78nXMuXk4TZEmBzxQUJBNzPQ82KlJTjTM8In\nWerIzofyuHn/baJ9FwhIbM76nw/rLQv2iDX9f8olTOtX+DKrPUkgpv7DIggpf4fV\n3/0F8+uD0QKBgCNYGvSxb8llIqd/On5peyMcfxytd/j/wQbQl9BuSNUJISJMRRb9\n9ZQRP5Shkq61SbAnWftgi0sOi0B6lVbLXkfhkPnGPWGISV4NhIXjixzseSRY+Lsg\nVDMaAV9MOVY6BsLEz/D7ZZadQ3vlWzTafdKoX4qKQfT3/1gMhg9UfnyhAoGBAIJT\n9zKrOUOJXuKMwDVXxuXTd/Htlw1etE5m4QspLaOG1rNHSiLzl3TAPRjt2QVCAAMr\nNh9AgjVApl4VFF+Cv11FEsYrFm3fXanmXK6pybvxxmMDuL1PxTyVuPBm2N3nnNK5\n8ZARfZBxjPaH2KrTXqWrcZvwVpNKeFW6ozCVROjxAoGAQR/CWwqhDQiGvCcQZ27e\n+9N6WvFf73u6fR52sJAVOLfggTfAlJZuyEffxa6bV/hZJTi5UMvhG/xA1SLFSB4T\n0fp5nRLo19h0I22su6ZfH4Q9+R2hDA+MsrkZDrZiqKgv1pfz4Eoro47UQJOX7RhC\nfJ2K2J3wD7RTdGyOCWFR5Pg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "nazdeeki@nazdeeki-maps.iam.gserviceaccount.com",
+  "client_id": "100395989450084150982",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/nazdeeki%40nazdeeki-maps.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
