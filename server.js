@@ -1,14 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
+const { Pool } = require('pg');
 const {OAuth2Client} = require('google-auth-library');
 
 const app = express();
-const PORT = 3000;
-const CSV_FILE = path.join(__dirname, 'emails.csv');
-const USER_FEEDBACK_FILE = path.join(__dirname, 'user_feedback.csv');
-const SELLER_FEEDBACK_FILE = path.join(__dirname, 'seller_feedback.csv');
+const PORT = process.env.PORT || 3000;
+
+// Database connection
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+});
 
 // Replace with your Google OAuth client ID
 const GOOGLE_CLIENT_ID = '858424434372-q21o2qfqn4c6o2ls72ns52tc92ljtq20.apps.googleusercontent.com';
@@ -19,47 +24,80 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
 
-if (!fs.existsSync(CSV_FILE)) {
-    fs.writeFileSync(CSV_FILE, 'email,name,signup_method,timestamp\n');
+// Initialize database tables
+async function initializeDatabase() {
+    try {
+        // Create emails table
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS emails (
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(255) UNIQUE NOT NULL,
+                name VARCHAR(255),
+                signup_method VARCHAR(50),
+                timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+        
+        // Create user_feedback table
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS user_feedback (
+                id SERIAL PRIMARY KEY,
+                feedback TEXT NOT NULL,
+                timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+        
+        // Create seller_feedback table
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS seller_feedback (
+                id SERIAL PRIMARY KEY,
+                feedback TEXT NOT NULL,
+                timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+        
+        console.log('Database tables initialized successfully!');
+    } catch (error) {
+        console.error('Database initialization failed:', error);
+    }
 }
 
-if (!fs.existsSync(USER_FEEDBACK_FILE)) {
-    fs.writeFileSync(
-        USER_FEEDBACK_FILE,
-        'feedback,timestamp\n'
-    );
-}
+// Call database initialization
+initializeDatabase();
 
-if (!fs.existsSync(SELLER_FEEDBACK_FILE)) {
-    fs.writeFileSync(
-        SELLER_FEEDBACK_FILE,
-        'feedback,timestamp\n'
-    );
-}
-
-app.post('/api/subscribe', (req, res) => {
+// Subscribe endpoint
+app.post('/api/subscribe', async (req, res) => {
     const { email, name = '', method = 'manual' } = req.body;
     
     if (!email || !email.includes('@')) {
         return res.status(400).json({ error: 'Valid email required' });
     }
 
-    const existingData = fs.readFileSync(CSV_FILE, 'utf8');
-    if (existingData.includes(email)) {
-        return res.status(400).json({ error: 'Email already subscribed' });
-    }
+    try {
+        // Check if email already exists
+        const existingUser = await pool.query('SELECT email FROM emails WHERE email = $1', [email]);
+        if (existingUser.rows.length > 0) {
+            return res.status(400).json({ error: 'Email already subscribed' });
+        }
 
-    const timestamp = new Date().toISOString();
-    // Ensure proper CSV formatting with newline
-    const csvRow = `"${email}","${name}","${method}","${timestamp}"\n`;
-    
-    // Append to file, ensuring each entry is on a new line
-    fs.appendFileSync(CSV_FILE, csvRow, 'utf8');
-    
-    const count = getEmailCount();
-    res.json({ success: true, count });
+        // Insert new email
+        await pool.query(
+            'INSERT INTO emails (email, name, signup_method) VALUES ($1, $2, $3)',
+            [email, name, method]
+        );
+
+        // Get updated count
+        const countResult = await pool.query('SELECT COUNT(*) FROM emails');
+        const count = parseInt(countResult.rows[0].count);
+
+        res.json({ success: true, count });
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ error: 'Server error' });
+    }
 });
 
+// Google signup endpoint
 app.post('/api/google-signup', async (req, res) => {
     try {
         const { credential } = req.body;
@@ -75,20 +113,21 @@ app.post('/api/google-signup', async (req, res) => {
         const name = payload.name || '';
         
         // Check if email already exists
-        const existingData = fs.readFileSync(CSV_FILE, 'utf8');
-        if (existingData.includes(email)) {
+        const existingUser = await pool.query('SELECT email FROM emails WHERE email = $1', [email]);
+        if (existingUser.rows.length > 0) {
             return res.status(400).json({ error: 'Email already subscribed' });
         }
 
-        // Save to CSV
-        const timestamp = new Date().toISOString();
-        // Ensure proper CSV formatting with newline
-        const csvRow = `"${email}","${name}","google","${timestamp}"\n`;
-        
-        // Append to file, ensuring each entry is on a new line
-        fs.appendFileSync(CSV_FILE, csvRow, 'utf8');
-        
-        const count = getEmailCount();
+        // Insert new email
+        await pool.query(
+            'INSERT INTO emails (email, name, signup_method) VALUES ($1, $2, $3)',
+            [email, name, 'google']
+        );
+
+        // Get updated count
+        const countResult = await pool.query('SELECT COUNT(*) FROM emails');
+        const count = parseInt(countResult.rows[0].count);
+
         res.json({ success: true, count, name });
         
     } catch (error) {
@@ -97,19 +136,26 @@ app.post('/api/google-signup', async (req, res) => {
     }
 });
 
-app.get('/api/count', (req, res) => {
-    const count = getEmailCount();
-    res.json({ count });
+// Get count endpoint
+app.get('/api/count', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT COUNT(*) FROM emails');
+        const count = parseInt(result.rows[0].count);
+        res.json({ count });
+    } catch (error) {
+        console.error('Count error:', error);
+        res.json({ count: 0 });
+    }
 });
 
-app.post('/api/feedback', (req, res) => {
+// Feedback endpoint
+app.post('/api/feedback', async (req, res) => {
     try {
         let audienceType = '';
         let freeText = '';
 
-        // Support JSON, urlencoded and raw-string bodies; accept common field aliases
+        // Support JSON, urlencoded and raw-string bodies
         if (typeof req.body === 'string') {
-            // Try to parse JSON string; if fails, treat entire body as feedback text
             try {
                 const parsed = JSON.parse(req.body);
                 audienceType = parsed.audienceType || '';
@@ -129,36 +175,68 @@ app.post('/api/feedback', (req, res) => {
             return res.status(400).json({ error: 'feedback text required' });
         }
 
-        const timestamp = new Date().toISOString();
-        const row = [csvEscape(String(freeText).trim()), csvEscape(timestamp)].join(',') + '\n';
+        // Insert feedback into appropriate table
+        const table = audienceType === 'seller' ? 'seller_feedback' : 'user_feedback';
+        await pool.query(`INSERT INTO ${table} (feedback) VALUES ($1)`, [String(freeText).trim()]);
 
-        if (audienceType === 'seller') {
-            fs.appendFileSync(SELLER_FEEDBACK_FILE, row, 'utf8');
-        } else {
-            fs.appendFileSync(USER_FEEDBACK_FILE, row, 'utf8');
-        }
-        return res.json({ success: true });
+        res.json({ success: true });
     } catch (error) {
         console.error('Feedback error:', error);
-        return res.status(500).json({ error: 'Server error' });
+        res.status(500).json({ error: 'Server error' });
     }
 });
 
-function getEmailCount() {
+// Export endpoints (bonus feature)
+app.get('/api/export/emails', async (req, res) => {
     try {
-        const data = fs.readFileSync(CSV_FILE, 'utf8');
-        const lines = data.trim().split('\n');
-        return Math.max(0, lines.length - 1);
+        const result = await pool.query('SELECT email, name, signup_method, timestamp FROM emails ORDER BY timestamp DESC');
+        
+        let csvContent = 'email,name,signup_method,timestamp\n';
+        result.rows.forEach(row => {
+            csvContent += `"${row.email}","${row.name}","${row.signup_method}","${row.timestamp}"\n`;
+        });
+        
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Disposition', 'attachment; filename="emails.csv"');
+        res.send(csvContent);
     } catch (error) {
-        return 0;
+        res.status(500).json({ error: 'Export failed' });
     }
-}
+});
 
-function csvEscape(value) {
-    if (value === undefined || value === null) return '""';
-    const str = String(value).replace(/"/g, '""');
-    return `"${str}"`;
-}
+app.get('/api/export/user-feedback', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT feedback, timestamp FROM user_feedback ORDER BY timestamp DESC');
+        
+        let csvContent = 'feedback,timestamp\n';
+        result.rows.forEach(row => {
+            csvContent += `"${row.feedback}","${row.timestamp}"\n`;
+        });
+        
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Disposition', 'attachment; filename="user_feedback.csv"');
+        res.send(csvContent);
+    } catch (error) {
+        res.status(500).json({ error: 'Export failed' });
+    }
+});
+
+app.get('/api/export/seller-feedback', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT feedback, timestamp FROM seller_feedback ORDER BY timestamp DESC');
+        
+        let csvContent = 'feedback,timestamp\n';
+        result.rows.forEach(row => {
+            csvContent += `"${row.feedback}","${row.timestamp}"\n`;
+        });
+        
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader('Content-Disposition', 'attachment; filename="seller_feedback.csv"');
+        res.send(csvContent);
+    } catch (error) {
+        res.status(500).json({ error: 'Export failed' });
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
