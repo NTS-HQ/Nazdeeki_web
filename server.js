@@ -12,9 +12,17 @@ const PORT = process.env.PORT || 3000;
 // Database connection
 const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://postgres:OTpRWzCKVGPRXBymjjluRlyAzqsfueSj@turntable.proxy.rlwy.net:49122/railway';
 
+const isRailway = /railway|proxy\.rlwy\.net/i.test(String(DATABASE_URL || ''));
+const sslConfig = isRailway
+    ? { rejectUnauthorized: false }
+    : (process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false);
+
 const pool = new Pool({
     connectionString: DATABASE_URL,
-    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+    ssl: sslConfig,
+    max: 5,
+    connectionTimeoutMillis: 10000,
+    idleTimeoutMillis: 30000,
 });
 
 // Replace with your Google OAuth client ID

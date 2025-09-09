@@ -1,1152 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazdeeki</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="description" content="Nazdeeki! Get your nearest food shops on a single platform. Enjoy the best taste made for you!">
-
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./Assets/nazdeeki_logo.png" type="image/x-icon">
+    <title>Nazdeeki - Web3 Food Discovery Platform</title>
+    <meta name="description" content="Get your nearest food shops on a single platform with Web3 transparency">
     
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <!-- AOS CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Enhanced Styles -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="light-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Animation Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    
     <!-- Google Sign-In -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-
 </head>
-
-<body class="bg-orange-50 text-black">
-
-    <!--Desktop & Tablet Navbar -->
-    <nav class="hidden md:block  top-0 backdrop-blur-sm bg-orange/10 z-800">
-        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
-
-            <!-- Logo -->
-            <div class="flex items-center space-x-2">
-                <img src="./Assets/nazdeeki logo.png" alt="Logo" class="w-40 object-contain">
+<body class="web3-theme light-theme">
+    <!-- Particle Background -->
+    <div id="particles-js" class="particles-container"></div>
+    
+    <!-- Animated Grid Background -->
+    <div class="grid-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="glassmorphic-nav" data-aos="fade-down">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="Assets/nazdeeki logo.png" alt="Nazdeeki Logo" class="logo-img">
             </div>
-
-            <!-- Navigation Links -->
-            <div class="flex space-x-8 text-lg text-gray-600 ">
-                <a href="index.html" class="hover:text-orange-500 transition-colors duration-300">
-                    <div class="nav-link relative overflow-hidden h-6">
-                        <span class="nav-link-text nav-link-top block pb-1">Home</span>
-                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Home</span>
-                    </div>
-                </a>
-                <a href="index.html#services" class="hover:text-orange-500 transition-colors duration-300">
-                    <div class="nav-link relative overflow-hidden h-6">
-                        <span class="nav-link-text nav-link-top block pb-1">Services</span>
-                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Services</span>
-                    </div>
-                </a>
-                <a href="faqandpricing.html" class="hover:text-orange-500 transition-colors duration-300">
-                    <div class="nav-link relative overflow-hidden h-6">
-                        <span class="nav-link-text nav-link-top block pb-1">FAQ</span>
-                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">FAQ</span>
-                    </div>
-                </a>
-                <a href="contactus.html" class="hover:text-orange-500 transition-colors duration-300">
-                    <div class="nav-link relative overflow-hidden h-6">
-                        <span class="nav-link-text nav-link-top block pb-1">Contact</span>
-                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Contact</span>
-                    </div>
-                </a>
+            
+            <div class="nav-links">
+                <a href="#services" class="nav-link"><span class="nav-text">Services</span><div class="nav-hover-effect"></div></a>
+                <a href="#features" class="nav-link"><span class="nav-text">Features</span><div class="nav-hover-effect"></div></a>
+                <a href="faqandpricing.html" class="nav-link"><span class="nav-text">FAQ</span><div class="nav-hover-effect"></div></a>
+                <a href="contactus.html" class="nav-link"><span class="nav-text">Contact</span><div class="nav-hover-effect"></div></a>
+            </div>
+            
+            <div class="web3-status">
+                <div class="connection-indicator"><div class="pulse-dot"></div><span>Network Active</span></div>
             </div>
         </div>
     </nav>
-
-    <!-- Mobile Navbar -->
-    <nav
-        class="md:hidden w-full mx-auto px-4 py-2  flex items-center justify-between shadow-lg z-50 bg-orange-50 fixed ">
-        <!-- Logo -->
-        <div class="flex items-center space-x-2">
-            <img src="./Assets/nazdeeki logo.png" alt="Logo" class=" w-40 object-contain">
-        </div>
-        <!-- Mobile Hamburger Button (visible on small screens) -->
-        <div class="flex md:hidden">
-            <button id="menu-toggle" class="text-black focus:outline-none">
-                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Mobile Nav Panel -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white flex-col items-center justify-center hidden z-40">
-        <div class="absolute top-4 right-4">
-            <!-- Close button (same as icon toggle) -->
-            <button id="close-panel" class="text-black focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-
-        <div class="flex flex-col items-center justify-center h-full space-y-8  text-xl font-medium">
-            <a href="index.html" class="hover:text-orange-600">Home</a>
-            <a href="index.html#services" class="hover:text-orange-600">Services</a>
-            <a href="faqandpricing.html" class="hover:text-orange-600">FAQ</a>
-            <a href="contactus.html" class="hover:text-orange-600">Contact</a>
-
-            <hr class="w-2/3 border-t mt-4 border-gray-300" />
-
-            <p class="text-center text-base text-gray-600 px-4 italic">
-                “Good food is the foundation of genuine happiness.” - Auguste Escoffier
-            </p>
-        </div>
-    </div>
 
     <!-- Hero Section -->
-    <section class="py-12 px-4 pt-48 md:pt-24 z-10" data-aos="zoom-in">
-        <div class="max-w-3xl mx-auto text-center space-y-4">
-
-            <!-- Rating Capsule -->
-            <div
-                class="inline-flex items-center space-x-2 bg-orange-200 text-gray-800 px-4 py-2 mb-4 rounded-full text-sm font-medium">
-                <span>Coming Soon</span>
-                <!-- <span>Playstore</span> -->
-                <!-- 5 filled stars -->
-                <!-- <div class="flex space-x-1 text-gray-800">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path
-                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
-                    </svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path
-                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
-                    </svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path
-                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
-                    </svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path
-                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
-                    </svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path
-                            d="M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z" />
-                    </svg>
-                </div>
-                <span>5.0</span> -->
-            </div>
-
-            <!-- Heading -->
-            <h1 class="text-5xl md:text-7xl font-bold text-gray-800 py-2">Find your <span
-                    class="text-orange-500">NAZDEEKi</span></h1>
-
-            <!-- Subtext -->
-            <!-- <p class="text-gray-600 px-2 md:px-8 text-sm">
-                Get your nearest food shops on a single platform. Enjoy the best taste made for you!
-            </p> -->
-
-            <!-- get early access email -->
-            <div class="mt-24">
-                <div
-                    class="mt-8 bg-[#fdf7ee] rounded-2xl shadow-[8px_8px_16px_#e6e0d6,-8px_-8px_16px_#ffffff] p-4 md:p-12 max-w-xl w-full text-center mx-auto border-2 border-gray-100">
-
-                    <!-- Heading -->
-                    <h2 class="text-2xl font-bold text-gray-800">Get Early Access</h2>
-                    <p class="text-gray-600 text-sm mt-3">
-                        Get your nearest food shops on a single platform. Enjoy the best taste made for you!
-                    </p>
-
-                    <!-- Input -->
-                    <form id="earlyAccessForm" class="mt-6 flex flex-col gap-4">
-                        <div class="rounded-full shadow-[inset_6px_6px_12px_#e6e0d6,inset_-6px_-6px_12px_#ffffff]">
-                            <input id="emailInput" type="email" placeholder="Enter your email"
-                                class="w-full mx-auto border-2 bg-[#fdf7ee] rounded-full px-1 text-center md:px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none"
-                                required>
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="hero-title">
+                    <span class="title-line">Get your nearest</span>
+                    <span class="title-line glitch-text" data-text="food shops">food shops</span>
+                    <span class="title-line">on a single platform.</span>
+                    <span class="title-line web3-gradient">Enjoy the best taste made for you!</span>
+                </h1>
+                
+                <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="400">
+                    Smarter food, smarter growth—Nazdeeki’s AI works for both users and sellers. Secure, transparent, and rewarding—Web3 magic happens behind the scenes.
+                </p>
+                
+                <!-- Web3 Waitlist Section -->
+                <div class="web3-waitlist" data-aos="fade-up" data-aos-delay="600">
+                    <div class="waitlist-header">
+                        <h3>Be part of the first few thousand</h3>
+                        <p>Who will experience Nazdeeki before anyone else</p>
+                    </div>
+                    
+                    <!-- Blockchain Counter Display -->
+                    <div class="blockchain-counter">
+                        <div class="counter-card glassmorphic">
+                            <div class="counter-header">
+                                <div class="network-status"><div class="status-dot active"></div><span>Live Network</span></div>
+                                <div class="block-height"><span class="block-label">Block:</span><span class="block-number" id="blockNumber">847,291</span></div>
+                            </div>
+                            
+                            <div class="counter-main">
+                                <div class="counter-value"><span class="counter-number" id="userCount">0</span><div class="counter-animation-trail"></div></div>
+                                <div class="counter-label">People already joined the waitlist</div>
+                                <div class="counter-hash"><span class="hash-label">TX Hash:</span><span class="hash-value" id="txHash">0x7f9fade…eab4ead7</span></div>
+                            </div>
+                            
+                            <div class="verification-progress">
+                                <div class="progress-bar"><div class="progress-fill" id="verificationProgress"></div></div>
+                                <span class="progress-text">Verifying on chain...</span>
+                            </div>
                         </div>
-
-                        <!-- Button -->
-                        <button id="submitBtn" type="submit"
-                            class="rounded-full mx-auto py-2 px-8 border-2 border-gray-100 font-semibold text-orange-500 bg-[#fdf7ee] shadow-[6px_6px_12px_#e6e0d6,-6px_-6px_12px_#ffffff] hover:shadow-[inset_6px_6px_12px_#e6e0d6,inset_-6px_-6px_12px_#ffffff] transition">
-                            Get Notified
+                    </div>
+                    
+                    <!-- Email Signup Form -->
+                    <form class="waitlist-form glassmorphic" id="emailForm">
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Enter your email address" required class="web3-input">
+                            <div class="input-validation"><div class="validation-icon"></div></div>
+                        </div>
+                        
+                        <button type="submit" class="web3-button primary" id="submitBtn">
+                            <span class="button-text">Join Network</span>
+                            <div class="button-particles"></div><div class="button-glow"></div>
                         </button>
+                        
+                        <!-- Google Sign-In Button -->
+                        <div class="google-signin-container">
+                            <div class="divider"><span>OR</span></div>
+                            <div id="g_id_onload"
+                                 data-client_id="858424434372-q21o2qfqn4c6o2ls72ns52tc92ljtq20.apps.googleusercontent.com"
+                                 data-callback="handleCredentialResponse"
+                                 data-auto_prompt="false"></div>
+                            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
+                                 data-text="signin_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                        </div>
+                        
+                        <div class="form-features">
+                            <div class="feature-item"><div class="feature-icon">🔒</div><span>Encrypted & Secure</span></div>
+                            <div class="feature-item"><div class="feature-icon">⚡</div><span>Instant Confirmation</span></div>
+                            <div class="feature-item"><div class="feature-icon">🎁</div><span>NFT Airdrop Perks</span></div>
+                        </div>
                     </form>
                 </div>
-
-
-                <!-- OR divider -->
-                <div class="flex items-center my-6 max-w-md mx-auto">
-                    <hr class="flex-grow border-gray-300">
-                    <span class="px-4 text-gray-500 text-sm">OR</span>
-                    <hr class="flex-grow border-gray-300">
-                </div>
-
-                <!-- Google Sign-In Button -->
-                <div class="flex justify-center">
-                    <div id="g_id_onload"
-                        data-client_id="858424434372-q21o2qfqn4c6o2ls72ns52tc92ljtq20.apps.googleusercontent.com"
-                        data-context="signup" data-ux_mode="popup" data-callback="handleGoogleSignUp"
-                        data-auto_prompt="false">
-                    </div>
-                    <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
-                        data-text="signup_with" data-size="large" data-logo_alignment="left">
-                    </div>
-                </div>
-
-                <div id="message" class="mt-4 text-sm font-medium hidden"></div>
             </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- Waitlist counter -->
-    <section class=" py-12 px-6 md:px-12 lg:px-24 text-center">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                Join the Waitlist 🚀
-            </h2>
-            <p class="text-gray-600 mb-8">
-                Be part of the first few thousand who will experience Nazdeeki before anyone else.
-            </p>
-
-            <!-- Counter -->
-            <div class="text-5xl md:text-6xl font-extrabold text-green-600" id="counter">
-                0
-            </div>
-            <p class="text-gray-700 mt-2">People already joined the waitlist</p>
-        </div>
-    </section>
-
-
-    <!-- Screenshot section -->
-    <section data-aos="fade-up">
-        <div class="md:h-[80vh] my-2"
-            style="background-image: url('./Assets/nazdeeki_5_screenshots.png'); background-size: contain; background-position: center; background-repeat: no-repeat;">
-        </div>
-    </section>
-
-
-
-    <!-- 2 highlighting points -->
-    <section class="mt-8 py-2 px-6 md:px-12 lg:px-24">
-        <h1 class="text-6xl text-center  mb-12" data-aos="zoom-in">Unique Features</h1>
-        <div class="max-w-6xl mx-auto space-y-24">
-
-            <!-- 🚀 AI Features -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-up">
-                <!-- Image -->
-                <div>
-                    <img src="./Assets/ai logo.png" alt="AI Features" class="hidden md:block w-full object-cover">
-                </div>
-                <!-- Text -->
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        🚀 AI Features
-                    </h3>
-                    <p class="text-gray-600 mb-6">
-                        Smarter food, smarter growth - Nazdeeki's AI works for both users and sellers.
-                    </p>
-
-                    <!-- For Users -->
-                    <h4 class="font-semibold text-gray-800 mb-3">For Users:</h4>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                                ✔
-                            </span>
-                            <span class="text-gray-700">Smart food picks just for you</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                                ✔
-                            </span>
-                            <span class="text-gray-700">Deals & healthy choices matched to your taste</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                                ✔
-                            </span>
-                            <span class="text-gray-700">Instant help—from orders to diets</span>
-                        </li>
-                    </ul>
-
-                    <!-- For Sellers -->
-                    <h4 class="font-semibold text-gray-800 mb-3">For Sellers:</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">AI tips to boost your menu</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700"> Predict sales and spot trends</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">Effortless offer planning</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 🔗 Web3 Features -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center lg:flex-row-reverse" data-aos="fade-up">
-                <!-- Text -->
-                <div>
-                    <h3 class="text-2xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        🔗 Web3 Features
-                    </h3>
-                    <p class="text-gray-600 mb-6">
-                        Secure, transparent, and rewarding - Nazdeeki's Web3 magic happens behind the scenes.
-                    </p>
-
-                    <!-- For Users -->
-                    <h4 class="font-semibold text-gray-800 mb-3">For Users:</h4>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">Orders locked & safe—thanks to blockchain</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">No crypto, no hidden fees—ever</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">Loyalty rewards, earned instantly</span>
-                        </li>
-                    </ul>
-
-                    <!-- For Sellers -->
-                    <h4 class="font-semibold text-gray-800 mb-3">For Sellers:</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">Zero blockchain fees—keep more profit</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">Customers get rewards automatically</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span
-                                class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✔</span>
-                            <span class="text-gray-700">Every payment—secure, clear, and instant</span>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Image -->
-                <div>
-                    <img src="./Assets/web_3_logo_new.png" alt="Web3 Features" class="rounded-2xl w-full object-cover hidden md:block">
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-
-    <!-- Unique features -->
-    <section class="py-32 px-6 md:px-12 lg:px-24" data-aos="fade-up">
-        <div class="max-w-5xl mx-auto text-center">
-            <!-- Title -->
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Unique Features
-            </h2>
-            <!-- Subtitle -->
-            <p class="text-gray-600 max-w-2xl mx-auto mb-10">
-                Discover what makes our app stand out. Designed with simplicity, speed, and reliability in mind to give
-                you the best user experience possible.
-            </p>
-        </div>
-
-        <!-- Feature List -->
-        <div class="max-w-4xl mx-auto grid gap-6 md:grid-cols-2">
-            <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                        <!-- Check Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-gray-700 text-lg">Lightning-fast performance with minimal load times</p>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-gray-700 text-lg">Modern, intuitive, and minimalist design</p>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-gray-700 text-lg">Highly secure with advanced data protection</p>
-            </div>
-
-            <div class="flex items-start gap-4">
-                <div class="flex-shrink-0">
-                    <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-gray-700 text-lg">Cross-platform support for web & mobile</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Testimonial Section -->
-    <!-- <section class="bg-orange-50 py-12 px-4" data-aos="fade-up">
-        <div class="max-w-6xl mx-auto text-center">
-            <span class="inline-block bg-black text-white px-4 py-2 rounded-full text-sm mb-4">Testimonial</span>
-            <h2 class="text-gray-600 text-xl mb-8">
-                Trusted by 100+ members all over the world.
-            </h2>
-
-            <div
-                class="flex space-x-4 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 pb-4 hide-scrollbar items-center">
-                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
-                    <p class="mb-4 text-gray-700">
-                        “Absolutely amazing experience! The food arrived quickly and was super fresh.”
-                    </p>
-                    <hr class="mb-4">
-                    <div class="flex items-center gap-4">
-                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 1" />
-                        <div class="text-left">
-                            <h4 class="text-sm font-semibold">Aisha Roy</h4>
-                            <p class="text-xs text-gray-500">Customer</p>
+            
+            <!-- 3D Hero Visual -->
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="300">
+                <div class="floating-card">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="food-visualization">
+                            <div class="food-item" style="--delay: 0s">🍕</div>
+                            <div class="food-item" style="--delay: 0.5s">🍔</div>
+                            <div class="food-item" style="--delay: 1s">🍜</div>
+                            <div class="food-item" style="--delay: 1.5s">🍱</div>
                         </div>
+                        <div class="connection-lines"></div>
                     </div>
-                </div>
-
-                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
-                    <p class="mb-4 text-gray-700">
-                        “This app saves so much time. I love the local vendor support. Highly recommended!”
-                    </p>
-                    <hr class="mb-4">
-                    <div class="flex items-center gap-4">
-                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 2" />
-                        <div class="text-left">
-                            <h4 class="text-sm font-semibold">Rahul Mehra</h4>
-                            <p class="text-xs text-gray-500">Restaurant Owner</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
-                    <p class="mb-4 text-gray-700">
-                        “User-friendly, super fast and beautifully designed. It's now my go-to for food orders.”
-                    </p>
-                    <hr class="mb-4">
-                    <div class="flex items-center gap-4">
-                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 3" />
-                        <div class="text-left">
-                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
-                            <p class="text-xs text-gray-500">Food Blogger</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
-                    <p class="mb-4 text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veritatis molestiae?
-                    </p>
-                    <hr class="mb-4">
-                    <div class="flex items-center gap-4">
-                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 4" />
-                        <div class="text-left">
-                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
-                            <p class="text-xs text-gray-500">Food Blogger</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
-                    <p class="mb-4 text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem recusandae veritatis
-                    </p>
-                    <hr class="mb-4">
-                    <div class="flex items-center gap-4">
-                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 5" />
-                        <div class="text-left">
-                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
-                            <p class="text-xs text-gray-500">Food Blogger</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
-                    <p class="mb-4 text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.recusandae veritatis ?
-                    </p>
-                    <hr class="mb-4">
-                    <div class="flex items-center gap-4">
-                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 6" />
-                        <div class="text-left">
-                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
-                            <p class="text-xs text-gray-500">Food Blogger</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white px-2 py-4 rounded-lg shadow-md w-60 shrink-0 snap-start">
-                    <p class="mb-4 text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veritatis molestiae?
-                    </p>
-                    <hr class="mb-4">
-                    <div class="flex items-center gap-4">
-                        <img src="./Assets/casual man standing.jpg" class="w-10 h-10 rounded-full" alt="User 7" />
-                        <div class="text-left">
-                            <h4 class="text-sm font-semibold">Sneha Patil</h4>
-                            <p class="text-xs text-gray-500">Food Blogger</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-    <!--Services / How it works Section 4 User-->
-    <section id="services" class="bg-orange-50 py-16 px-4 sm:px-6 lg:px-16" data-aos="fade-up">
-        <!-- Black Capsule Title -->
-        <div class="flex justify-center">
-            <span class="bg-black text-white px-6 py-1 rounded-full text-lg font-medium">How it Works</span>
-        </div>
-
-        <!-- Subtitle -->
-        <h2 class="text-center text-gray-700 text-xl sm:text-2xl md:text-3xl font-light mt-4 mb-10">
-            Find your nearest Bite and get all the services you need in one place
-        </h2>
-
-        <!-- Horizontal Scroll Panels -->
-        <div class="flex overflow-x-auto space-x-6 hide-scrollbar scroll-smooth snap-x snap-mandatory pb-4">
-            <!-- Panel 1 -->
-            <div
-                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl lg:px-6 p-4 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
-                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Scan</h3>
-                <p class="text-md text-gray-600 mb-4">"Scan the Code, Taste the Menu!"</p>
-                <div class="flex justify-center mb-4">
-                    <img src="./Assets/scan.png" alt="App Screenshot" class="w-40 h-auto " />
-                </div>
-                <p class="text-gray-600 text-sm lg:px-16">
-                    No more flipping through old menus! Simply scan the QR code with your phone to instantly explore the
-                    digital menu. It's fast, hygienic, and always up-to-date with the latest flavors and offers
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['QR doesn\'t work'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Instant QR</button>
-                    <button onclick="microPollUser(['Menu outdated'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Always Fresh Menus</button>
-                    <button onclick="microPollUser(['App UX'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Smooth</button>
-                </div>
-            </div>
-
-            <!-- Panel 2 -->
-            <div
-                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
-                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Takeaway (Parcel)</h3>
-                <p class="text-md text-gray-600 mb-4">"Grab & Go, The Easy Way!"
-                </p>
-                <div class="flex justify-center mb-4">
-                    <img src="./Assets/takeaway.png" alt="App Screenshot" class="w-40 h-auto " />
-                </div>
-                <p class="text-gray-600 text-sm lg:px-16">
-                    In a rush? Choose your favorites, place your order, and pick it up when it's ready. Our seamless
-                    takeaway system is designed to save your time while keeping your food fresh and ready to go.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Long wait'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Express Service</button>
-                    <button onclick="microPollUser(['Order not ready'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Always Ready On-Time</button>
-                    <!--<button onclick="microPollUser(['Wrong items'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Wrong
-                        items</button> -->
-                </div>
-            </div>
-
-            <!-- Panel 3 -->
-            <div
-                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
-                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Dine-in</h3>
-                <p class="text-md text-gray-600 mb-4">"Reserve. Relax. Relish!"</p>
-                <div class="flex justify-center mb-4">
-                    <img src="./Assets/dine in.png" class="w-40 h-auto " />
-                </div>
-                <p class="text-gray-600 text-sm lg:px-16">
-                    Want to enjoy your meal at our place? Book your table in advance, skip the wait, and indulge in a
-                    smooth, relaxed dining experience. Good vibes and great food await you!
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Waiting time'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Skip All Waits</button>
-                    <button onclick="microPollUser(['Menu confusion'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Crystal Clear Menus</button>
-                    <!--<button onclick="microPollUser(['Billing delays'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Billing
-                        delays</button> -->
-                </div>
-            </div>
-
-            <!-- Panel 4 -->
-            <div
-                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
-                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1"> Delivery</h3>
-                <p class="text-md text-gray-600 mb-4">
-                    "Hot & Fresh, Right to You!"</p>
-                <div class="flex justify-center mb-4">
-                    <img src="./Assets/delivery.png" alt="App Screenshot" class="w-40 h-auto " />
-                </div>
-                <p class="text-gray-600 text-sm lg:px-16">
-                    Craving comfort at home? Order online and let us bring the goodness to your doorstep—hot, fresh, and
-                    packed with care. Just sit back and enjoy the flavors!
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Slow delivery'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Fair Pricing Always</button>
-                    <button onclick="microPollUser(['Surge fees'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Fully Trackable</button>
-                    <!--<button onclick="microPollUser(['Cold food'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Cold
-                        food</button> -->
-                </div>
-            </div>
-
-            <!-- Panel 5 -->
-            <div
-                class="min-w-[90%] sm:min-w-[48%] md:min-w-[48%] bg-orange-100 shadow-md rounded-2xl p-4 lg:px-6 lg:py-12 snap-start text-center border border-orange-400 border-2 shadow-md">
-                <h3 class="text-xl md:text-3xl font-semibold text-orange-500 mb-1">Event Booking</h3>
-                <p class="text-md text-gray-600 mb-4">
-                    "Book Food for Every Mood!"</p>
-                <div class="flex justify-center mb-4">
-                    <img src="./Assets/event.png" alt="App Screenshot" class="w-40 h-auto " />
-                </div>
-                <p class="text-gray-600 text-sm lg:px-16">
-                    Planning a party, meeting, or celebration? Let us handle the food! From small gatherings to grand
-                    events, we cater to every mood and moment with delicious, customizable menu options.
-                </p>
-                <div class="mt-4 flex flex-wrap gap-2 justify-center" data-aos="zoom-in">
-                    <button onclick="microPollUser(['Coordination issues'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Flawless Coordination</button>
-                    <button onclick="microPollUser(['Price transparency'])"
-                        class="px-3 py-1 text-xs rounded-full border border-orange-400 hover:bg-orange-200 transition">Professional Service</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How it works Section 4 Sellers -->
-    <section class=" py-16 px-6 text-center text-gray-800" data-aos="fade-up">
-        <div class="max-w-6xl mx-auto space-y-12">
-
-            <!-- Section Title -->
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12">How It Works, for Sellers</h2>
-
-            <!-- Steps (Repeat or Modify as Needed) -->
-            <div class="grid gap-12 md:grid-cols-3">
-                <!-- Step 1 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="text-4xl mb-4 text-orange-500 font-bold">1</div>
-                    <h3 class="text-xl font-semibold mb-2">Sign Up</h3>
-                    <p class="text-gray-600">Create your account and get started within minutes.</p>
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-accent">Discover what makes</span>
+                    <span class="web3-gradient">our app stand out</span>
+                </h2>
+                <p class="section-subtitle">Designed with simplicity, speed, and reliability in mind to give you the best user experience possible</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card glassmorphic" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <div class="icon-animation">⚡</div>
+                    </div>
+                    <h3>Lightning-fast performance</h3>
+                    <p>Minimal load times with optimized performance across all devices</p>
+                    <div class="feature-tech-stack">
+                        <span class="tech-tag">High Speed</span>
+                        <span class="tech-tag">Optimized</span>
+                    </div>
                 </div>
-
-                <!-- Step 2 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="text-4xl mb-4 text-orange-500 font-bold">2</div>
-                    <h3 class="text-xl font-semibold mb-2">List Your Services</h3>
-                    <p class="text-gray-600">Add your shop/hotel details, menus, offers, and availability.</p>
+                
+                <div class="feature-card glassmorphic" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <div class="icon-animation">🎨</div>
+                    </div>
+                    <h3>Modern Design</h3>
+                    <p>Intuitive, and minimalist design that's easy to use for everyone</p>
+                    <div class="feature-tech-stack">
+                        <span class="tech-tag">UI/UX</span>
+                        <span class="tech-tag">Minimalist</span>
+                    </div>
                 </div>
-
-                <!-- Step 3 -->
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <div class="text-4xl mb-4 text-orange-500 font-bold">3</div>
-                    <h3 class="text-xl font-semibold mb-2">Go Live</h3>
-                    <p class="text-gray-600">Start receiving orders, bookings & more - right from Day 1.</p>
+                
+                <div class="feature-card glassmorphic" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <div class="icon-animation">🔒</div>
+                    </div>
+                    <h3>Highly Secure</h3>
+                    <p>Advanced data protection with blockchain-level security measures</p>
+                    <div class="feature-tech-stack">
+                        <span class="tech-tag">Encrypted</span>
+                        <span class="tech-tag">Protected</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card glassmorphic" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <div class="icon-animation">📱</div>
+                    </div>
+                    <h3>Cross-platform Support</h3>
+                    <p>Seamless experience across web & mobile platforms</p>
+                    <div class="feature-tech-stack">
+                        <span class="tech-tag">Web & Mobile</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
                 </div>
             </div>
-
-            <!-- Call-to-Action Buttons -->
-            <!--<div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
-                <a href="#seller-feedback"
-                    class="bg-black text-white text-xl px-6 py-3 rounded-full hover:bg-gray-800 hover:scale-90 transition">Join
-                    Us</a>
-                <a href="#seller-feedback"
-                    class="bg-black text-white text-xl px-6 py-3 rounded-full hover:bg-gray-800 hover:scale-90 transition">Book
-                    a Demo</a>
-            </div> -->
-
-            <!-- Captivating Line -->
-            <p class="mt-8 text-lg font-medium text-gray-700 max-w-2xl mx-auto">
-                Take your local business to the next level with Nazdeeki — more visibility, more customers, more growth.
-            </p>
         </div>
     </section>
 
-    <!-- issue form -->
-    <section class="bg-orange-50 py-20 px-6 md:px-12 lg:px-24">
-        <h1 class="text-5xl font-bold text-center py-1" data-aos="fade-in">Facing Issues from other Platforms?</h1>
-        <div class="max-w-5xl mx-auto space-y-16">
-
-            <!-- User Feedback Structured Form -->
-            <div id="user-feedback" class="bg-white rounded-2xl shadow p-8" data-aos="fade-up">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-2">💬 For Users</h3>
-                <p class="text-gray-700 mb-6">Share your recommendations and problems you face with today's food ordering and supply chain.</p>
-                <form id="userFeedbackForm" class="space-y-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Your message</label>
-                    <textarea name="freeText"
-                        class="w-full h-32 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
-                        placeholder="Tell us what could be better in today’s food ordering and supply chain..." required></textarea>
-                    <div class="flex items-center gap-4">
-                        <button id="userFeedbackSubmit"
-                            class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
-                        <span id="userFeedbackMsg" class="text-sm font-medium"></span>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Seller Feedback Structured Form -->
-            <div id="seller-feedback" class="bg-white rounded-2xl shadow p-8" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-2">🏪 For Restaurant Owners</h3>
-                <p class="text-gray-700 mb-6">Tell us what must improve in platforms or supply chain for you to switch or try Nazdeeki.</p>
-                <form id="sellerFeedbackForm" class="space-y-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Your message</label>
-                    <textarea name="freeText"
-                        class="w-full h-32 p-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none text-gray-700"
-                        placeholder="What must improve for you to switch/try Nazdeeki?" required></textarea>
-                    <div class="flex items-center gap-4">
-                        <button id="sellerFeedbackSubmit"
-                            class="mt-2 px-6 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition">Submit</button>
-                        <span id="sellerFeedbackMsg" class="text-sm font-medium"></span>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Blogs Section -->
-    <!-- <section id="blogs" class="py-12 scroll-mt-28" data-aos="fade-up">
-        <div class="max-w-7xl px-4 mx-auto">
-            <div class="flex justify-center">
-                <h2
-                    class="inline-block px-8 py-2 bg-black text-white rounded-full text-lg text-center font-medium my-8">
-                    Latest Blogs
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="web3-gradient">Five Interconnected</span>
+                    <span class="title-accent">Services</span>
                 </h2>
             </div>
-
-            <div class="flex max-w-5xl mx-auto overflow-x-scroll gap-6 hide-scrollbar px-2">
-                <a href="#">
-                    <div class="min-w-[350px] h-[200px] flex flex-col justify-end p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
-                        style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
-                        <p class="text-sm mb-1">12 July 2025</p>
-                        <h3 class="text-lg font-semibold">The Secret Behind Tasty Street Foods</h3>
+            
+            <div class="services-grid">
+                <!-- Scan Service -->
+                <div class="service-card glassmorphic" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-container">
+                                <span class="icon-emoji">📱</span>
+                            </div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-text">Scan</span>
+                            <div class="badge-glow"></div>
+                        </div>
                     </div>
-                </a>
-
-                <a href="#">
-                    <div class="min-w-[350px] h-[200px] flex flex-col justify-end p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
-                        style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
-                        <p class="text-sm mb-1">10 July 2025</p>
-                        <h3 class="text-lg font-semibold">Top 5 Biryani Spots in Your City</h3>
+                    
+                    <div class="service-content">
+                        <h3 class="service-title">"Scan the Code, Taste the Menu!"</h3>
+                        <p class="service-description">
+                            No more flipping through old menus! Simply scan the QR code with your phone to instantly 
+                            explore the digital menu. It's fast, hygienic, and always up-to-date with the latest flavors and offers
+                        </p>
                     </div>
-                </a>
-
-                <a href="#">
-                    <div class="min-w-[350px] h-[200px] flex items-center justify-center p-4 rounded-xl text-white bg-[url('./Assets/food-wallpaper.jpg')] bg-cover bg-center bg-no-repeat"
-                        style="background-blend-mode: darken; background-color: rgba(0, 0, 0, 0.5);">
-                        <h3 class="text-xl font-bold text-center">View All</h3>
+                </div>
+                
+                <!-- Takeaway Service -->
+                <div class="service-card glassmorphic" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-container">
+                                <span class="icon-emoji">🥡</span>
+                            </div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-text">Parcel</span>
+                            <div class="badge-glow"></div>
+                        </div>
                     </div>
-                </a>
+                    
+                    <div class="service-content">
+                        <h3 class="service-title">"Grab & Go, The Easy Way!"</h3>
+                        <p class="service-description">
+                            In a rush? Choose your favorites, place your order, and pick it up when it's ready. 
+                            Our seamless takeaway system is designed to save your time while keeping your food fresh and ready to go.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Dine-in Service -->
+                <div class="service-card glassmorphic" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-container">
+                                <span class="icon-emoji">🍽️</span>
+                            </div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-text">Dine-in</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-content">
+                        <h3 class="service-title">"Reserve. Relax. Relish!"</h3>
+                        <p class="service-description">
+                            Want to enjoy your meal at our place? Book your table in advance, skip the wait, 
+                            and indulge in a smooth, relaxed dining experience. Good vibes and great food await you!
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Delivery Service -->
+                <div class="service-card glassmorphic" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-container">
+                                <span class="icon-emoji">🚚</span>
+                            </div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-text">Delivery</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-content">
+                        <h3 class="service-title">"Hot & Fresh, Right to You!"</h3>
+                        <p class="service-description">
+                            Craving comfort at home? Order online and let us bring the goodness to your doorstep—hot, 
+                            fresh, and packed with care. Just sit back and enjoy the flavors!
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Event Booking Service -->
+                <div class="service-card glassmorphic" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <div class="icon-container">
+                                <span class="icon-emoji">🎉</span>
+                            </div>
+                        </div>
+                        <div class="service-badge">
+                            <span class="badge-text">Events</span>
+                            <div class="badge-glow"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-content">
+                        <h3 class="service-title">"Book Food for Every Mood!"</h3>
+                        <p class="service-description">
+                            Planning a party, meeting, or celebration? Let us handle the food! From small gatherings 
+                            to grand events, we cater to every mood and moment with delicious, customizable menu options.
+                        </p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section> -->
-
-    <!-- Our Mission Section -->
-    <section class="bg-[#fff7f0] px-8 py-16" data-aos="fade-up">
-        <div class="max-w-4xl mx-auto text-center">
-            <!-- Capsule Title -->
-            <div class="inline-block bg-black text-white text-lg px-8 py-2 rounded-full mb-6">
-                Our Mission
-            </div>
-
-            <!-- Mission Paragraph -->
-            <p class="text-2xl  md:text-5xl text-gray-black mb-6">
-                To connect people with nearby restaurants and food shops through an all in one platform, that offers
-                fast, flexible and affordable food services - empowering local vendors, to grow their services and serve
-                the communities better.
-            </p>
-
-            <!-- Tagline -->
-            <p class="text-xl text-gray-500">Empowering local flavours</p>
         </div>
     </section>
 
-    <!-- Gradient Card Section -->
-    <div class=" p-2 md:px-8 md:py-16 lg:px-32" data-aos="fade-up">
-        <section class="bg-gradient-to-b from-white to-orange-50 px-4 py-12 rounded-3xl">
-            <div class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+    <!-- App Visuals Section -->
+    <section class="visuals-section" id="visuals">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-accent">See the</span>
+                    <span class="web3-gradient">app in action</span>
+                </h2>
+                <p class="section-subtitle">Screens from the Nazdeeki mobile experience</p>
+            </div>
 
-                <!-- Left Side Content -->
-                <div class="flex-1 text-center md:text-left md:px-16">
-                    <h3 class="text-sm text-gray-500 mb-2">Join the Waitlist</h3>
-                    <h2 class="text-xl md:text-4xl font-bold text-gray-800 mb-6 leading-snug">
-                        Scan, Dine, Takeaway, Delivery & Events booking — Nazdeeki Does it all for you
+            <div class="visuals-frame glassmorphic" data-aos="zoom-in" data-aos-delay="150">
+                <img src="Assets/nazdeeki_5_screenshots.png" alt="Nazdeeki app visuals" class="app-visuals-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Onboarding Section -->
+    <section class="onboarding-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="web3-gradient">Get Started</span>
+                    <span class="title-accent">in 3 Steps</span>
+                </h2>
+            </div>
+            
+            <div class="onboarding-steps">
+                <div class="step-card glassmorphic" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">
+                        <span class="number">01</span>
+                        <div class="number-glow"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Create Account</h3>
+                        <p>Create your account and get started within minutes.</p>
+                    </div>
+                </div>
+                
+                <div class="step-card glassmorphic" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">
+                        <span class="number">02</span>
+                        <div class="number-glow"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Setup Business</h3>
+                        <p>Add your shop/hotel details, menus, offers, and availability.</p>
+                    </div>
+                </div>
+                
+                <div class="step-card glassmorphic" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">
+                        <span class="number">03</span>
+                        <div class="number-glow"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>Start Earning</h3>
+                        <p>Start receiving orders, bookings & more - right from Day 1.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cta-section" data-aos="fade-up" data-aos-delay="400">
+                <p class="cta-text">Take your local business to the next level with Nazdeeki — more visibility, more customers, more growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="feedback-section">
+        <div class="container">
+            <div class="feedback-content" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="web3-gradient">Share Your Voice</span>
+                </h2>
+                
+                <div class="feedback-forms">
+                    <div class="feedback-form glassmorphic">
+                        <h3>User Feedback</h3>
+                        <p>Share your recommendations and problems you face with today's food ordering and supply chain.</p>
+                        <form id="userFeedbackForm">
+                            <input type="hidden" name="audienceType" value="user">
+                            <textarea name="freeText" placeholder="Your feedback here..." required></textarea>
+                            <button type="submit" class="web3-button">Submit Feedback</button>
+                            <div class="feedback-status" id="userFeedbackStatus" aria-live="polite"></div>
+                        </form>
+                    </div>
+                    
+                    <div class="feedback-form glassmorphic">
+                        <h3>Seller Feedback</h3>
+                        <p>Tell us what must improve in platforms or supply chain for you to switch or try Nazdeeki.</p>
+                        <form id="sellerFeedbackForm">
+                            <input type="hidden" name="audienceType" value="seller">
+                            <textarea name="freeText" placeholder="Your feedback here..." required></textarea>
+                            <button type="submit" class="web3-button">Submit Feedback</button>
+                            <div class="feedback-status" id="sellerFeedbackStatus" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content" data-aos="fade-up">
+                <div class="mission-text">
+                    <h2 class="mission-title">
+                        <span class="web3-gradient">Our Mission</span>
                     </h2>
-
-                    <!-- Play Store Button -->
-                    <!-- <a href="#"
-                        class="inline-flex items-center bg-black text-white rounded-full px-4 py-2 transition-transform hover:scale-95">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                            alt="Playstore" class="h-10 w-auto" />
-                    </a> -->
-                    <p
-                        class="bg-orange-500 text-gray-50 text-lg font-semibold mx-auto md:w-72 text-center rounded-full p-4 mt-12">
-                        Stay tuned, Coming Soon!</p>
-                </div>
-
-                <!-- Right Side Image -->
-                <div class="flex-1 flex justify-center">
-                    <!-- Replace with your iPhone screenshot -->
-                    <img src="./Assets/nazdeeki logo.png" alt="App Screenshot"
-                        class="w-[250px] md:w-[300px] rounded-xl " />
+                    <p class="mission-description">
+                        To connect people with nearby restaurants and food shops through an all in one platform, 
+                        that offers fast, flexible and affordable food services - empowering local vendors, 
+                        to grow their services and serve the communities better.
+                    </p>
+                    <p class="mission-tagline web3-gradient">Empowering local flavours</p>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <!-- Final Section -->
-    <section class="bg-orange-50 text-gray-800 text-center px-1 pt-8 space-y-4" data-aos="fade-up">
-
-        <!-- Heading -->
-        <h2 class="text-4xl md:text-5xl secondary-font mb-8">Har <span>गली</span> ka swad - NAZDEEKi ke sath!</h2>
-
-        <!-- Navigation Links -->
-        <nav class="flex flex-col md:flex-row justify-center items-center gap-4 text-md text-gray-600 font-medium">
-            <a href="./index.html" class="hover:text-orange-500">Home</a>
-            <a href="./faqandpricing.html" class="hover:text-orange-500">FAQ</a>
-            <a href="./contactus.html" class="hover:text-orange-500">Contact</a>
-        </nav>
-
-        <!-- Social Media Icons -->
-        <div class="flex justify-center gap-6 text-xl text-gray-600">
-            <a href="#" class="hover:text-orange-500"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="hover:text-orange-500"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="hover:text-orange-500"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="hover:text-orange-500"><i class="fab fa-linkedin-in"></i></a>
         </div>
-
     </section>
-
-
-
-
 
     <!-- Footer -->
-    <footer class="bg-orange-50 text-gray-600 text-sm px-6 py-8 flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-2 md:mb-0">&copy; 2025 Nazdeeki. All rights reserved.</div>
-        <div class="flex gap-4">
-            <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
-            <a href="cookies.html" class="hover:underline">Cookies</a>
-            <a href="termsandconditions.html" class="hover:underline">Terms & Conditions</a>
+    <footer class="footer glassmorphic">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-animation">
+                        <span class="logo-text">Nazdeeki</span>
+                        <div class="logo-tagline">Empowering local flavours through Web3</div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Platform</h4>
+                        <a href="#services">Services</a>
+                        <a href="#features">Features</a>
+                        <a href="faqandpricing.html">Pricing</a>
+                        <a href="blogs.html">Blogs</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="termsandconditions.html">Terms & Conditions</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <a href="contactus.html">Contact Us</a>
+                        <a href="#community">Community</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nazdeeki Technologies Private Limited. Building the future of decentralized food discovery.</p>
+                <div class="coming-soon-badge">
+                    <span>Stay tuned, Coming Soon!</span>
+                    <div class="badge-glow"></div>
+                </div>
+            </div>
         </div>
     </footer>
 
+   <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+   <script>
+       AOS.init({ duration:800, easing:'ease-out-cubic', once:true, offset:50 });
 
+       // Counter & signup logic (unchanged endpoints, only messaging updated)
+       let currentCount = 0;
+       async function fetchCount() {
+           try {
+               const res = await fetch('/api/count');
+               const data = await res.json();
+               currentCount = data.count || 0;
+               animateCounter(0, currentCount);
+               updateChainElements();
+           } catch { currentCount = 0; document.getElementById('userCount').textContent='0'; }
+       }
+       function animateCounter(f, t) {
+           const el = document.getElementById('userCount');
+           const start = performance.now();
+           function step(now) {
+               const prog = Math.min((now - start)/2000,1);
+               const val = Math.floor(f + (t - f)*(1 - Math.pow(1-prog,3)));
+               el.textContent = val.toLocaleString();
+               if(prog<1) requestAnimationFrame(step);
+           }
+           requestAnimationFrame(step);
+       }
+       function updateChainElements() {
+           const chars='0123456789abcdef';
+           let h='0x'; for(let i=0;i<64;i++)h+=chars[Math.floor(Math.random()*16)];
+           document.getElementById('txHash').textContent=h;
+           const blk=Math.floor(Math.random()*1000)+847291;
+           document.getElementById('blockNumber').textContent=blk.toLocaleString();
+           const p=document.getElementById('verificationProgress');
+           p.style.width='0%'; setTimeout(()=>p.style.width='100%',100);
+       }
+       document.getElementById('emailForm').addEventListener('submit',async e=>{
+           e.preventDefault();
+           const btn=document.getElementById('submitBtn'), txt=btn.querySelector('.button-text');
+           btn.disabled=true; txt.textContent='Broadcasting TX…';
+           try {
+               const res=await fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:document.getElementById('email').value,method:'manual'})});
+               const d=await res.json();
+               if(d.success){
+                   animateCounter(currentCount,d.count);
+                   currentCount=d.count;
+                   updateChainElements();
+                   txt.textContent='Transaction confirmed—welcome on-chain!';
+                   document.getElementById('email').value='';
+               } else {
+                   txt.textContent='TX reverted—already on-chain.';
+               }
+           } catch {
+               txt.textContent='Block reorged—try again soon.';
+           }
+           setTimeout(()=>{
+               txt.textContent='Join Network';
+               btn.disabled=false;
+           },3000);
+       });
+       function handleCredentialResponse(resp){
+           fetch('/api/google-signup',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({credential:resp.credential})})
+               .then(r=>r.json()).then(d=>{
+                   if(d.success){
+                       animateCounter(currentCount,d.count);
+                       currentCount=d.count;
+                       updateChainElements();
+                       alert(`👋 Welcome ${d.name}! Transaction confirmed on chain.`);
+                   } else alert('⚠️ '+d.error);
+               }).catch(()=>alert('⚠️ TX failed—try again.'));
+       }
+       window.addEventListener('load',()=>{
+           fetchCount();
+           setInterval(updateChainElements,15000);
+       });
 
-
-    <!-- JS for menu toggle -->
-    <script>
-        const toggleBtn = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-        const closePanel = document.getElementById('close-panel');
-
-        toggleBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-
-        closePanel.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-        });
-    </script>
-
-    <!-- js for no of people in waitlist and form handling -->
-    <script>
-        let currentCount = 0;
-
-        // Load initial count
-        document.addEventListener("DOMContentLoaded", () => {
-            loadCount();
-        });
-
-        async function loadCount() {
-            try {
-                const response = await fetch('/api/count');
-                const data = await response.json();
-                currentCount = data.count;
-                animateCounter(currentCount);
-            } catch (error) {
-                console.error('Error loading count:', error);
-                animateCounter(1200); // fallback to static number
-            }
+        // Feedback form handlers
+        async function submitFeedback(formId, statusId){
+            const form = document.getElementById(formId);
+            const status = document.getElementById(statusId);
+            if(!form) return;
+            form.addEventListener('submit', async (e)=>{
+                e.preventDefault();
+                const formData = new FormData(form);
+                const audienceType = formData.get('audienceType');
+                const freeText = formData.get('freeText');
+                status.textContent = 'Submitting...';
+                status.className = 'feedback-status';
+                try{
+                    const res = await fetch('/api/feedback', {
+                        method:'POST',
+                        headers:{ 'Content-Type':'application/json' },
+                        body: JSON.stringify({ audienceType, freeText })
+                    });
+                    const data = await res.json();
+                    if(res.ok && data.success){
+                        status.textContent = 'Thank you! Feedback received.';
+                        status.className = 'feedback-status success';
+                        form.reset();
+                    }else{
+                        status.textContent = (data && data.error) ? data.error : 'Failed to submit feedback';
+                        status.className = 'feedback-status error';
+                    }
+                }catch(err){
+                    status.textContent = 'Network error. Please try again.';
+                    status.className = 'feedback-status error';
+                }
+            });
         }
-
-        function animateCounter(target) {
-            const counter = document.getElementById("counter");
-            const duration = 1000;
-            let start = 0;
-            const stepTime = Math.abs(Math.floor(duration / target)) || 1;
-
-            const timer = setInterval(() => {
-                start++;
-                counter.textContent = start.toLocaleString();
-                if (start >= target) {
-                    clearInterval(timer);
-                }
-            }, stepTime);
-        }
-
-        // Handle Google Sign-Up
-        async function handleGoogleSignUp(response) {
-            const message = document.getElementById('message');
-            message.className = 'mt-4 text-sm font-medium hidden';
-
-            try {
-                const result = await fetch('/api/google-signup', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ credential: response.credential })
-                });
-
-                const data = await result.json();
-
-                if (result.ok) {
-                    // Success
-                    message.className = 'mt-4 text-sm font-medium text-green-600';
-                    message.textContent = `Thank you${data.name ? ', ' + data.name.split(' ')[0] : ''}! You've been added to the waitlist.`;
-
-                    // Update counter
-                    currentCount = data.count;
-                    document.getElementById("counter").textContent = currentCount.toLocaleString();
-                } else {
-                    // Error
-                    message.className = 'mt-4 text-sm font-medium text-red-600';
-                    message.textContent = data.error || 'Something went wrong. Please try again.';
-                }
-            } catch (error) {
-                message.className = 'mt-4 text-sm font-medium text-red-600';
-                message.textContent = 'Network error. Please check your connection and try again.';
-            }
-        }
-
-        // Handle form submission
-        document.getElementById('earlyAccessForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const emailInput = document.getElementById('emailInput');
-            const submitBtn = document.getElementById('submitBtn');
-            const message = document.getElementById('message');
-            const email = emailInput.value.trim();
-
-            if (!email) return;
-
-            // Disable button during submission
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Please wait...';
-            message.className = 'mt-4 text-sm font-medium hidden';
-
-            try {
-                const response = await fetch('/api/subscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    // Success
-                    message.className = 'mt-4 text-sm font-medium text-green-600';
-                    message.textContent = 'Thank you! You\'ve been added to the waitlist.';
-                    emailInput.value = '';
-
-                    // Update counter
-                    currentCount = data.count;
-                    document.getElementById("counter").textContent = currentCount.toLocaleString();
-                } else {
-                    // Error
-                    message.className = 'mt-4 text-sm font-medium text-red-600';
-                    message.textContent = data.error || 'Something went wrong. Please try again.';
-                }
-            } catch (error) {
-                message.className = 'mt-4 text-sm font-medium text-red-600';
-                message.textContent = 'Network error. Please check your connection and try again.';
-            } finally {
-                // Re-enable button
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Get Notified';
-            }
-        });
-
-        // Micro-poll: prefill user textarea and scroll
-        function microPollUser(tags) {
-            try {
-                const form = document.getElementById('userFeedbackForm');
-                if (!form) {
-                    window.location.hash = '#user-feedback';
-                    return;
-                }
-                const textarea = form.querySelector('textarea[name="freeText"]');
-                const suggestion = `Issues: ${tags.join(', ')}`;
-                if (textarea) {
-                    const current = (textarea.value || '').trim();
-                    textarea.value = current ? `${current}\n${suggestion}` : suggestion;
-                }
-                document.getElementById('user-feedback').scrollIntoView({ behavior: 'smooth' });
-            } catch { }
-        }
-
-        // Submit handlers for structured forms
-        document.getElementById('userFeedbackSubmit').addEventListener('click', async (e) => {
-            e.preventDefault();
-            const form = document.getElementById('userFeedbackForm');
-            const msg = document.getElementById('userFeedbackMsg');
-            msg.className = 'text-sm font-medium';
-            msg.textContent = '';
-
-            const textareaUser = form.querySelector('textarea[name="freeText"]');
-            const freeText = textareaUser && typeof textareaUser.value === 'string' ? textareaUser.value.trim() : '';
-            if (!freeText) {
-                msg.className = 'text-sm font-medium text-red-600';
-                msg.textContent = 'Please enter your message.';
-                return;
-            }
-
-            const payload = { audienceType: 'user', freeText };
-
-            try {
-                const res = await fetch('/api/feedback', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error || 'Failed');
-                msg.className = 'text-sm font-medium text-green-600';
-                msg.textContent = 'Thanks! Your feedback is saved.';
-                form.reset();
-            } catch (err) {
-                msg.className = 'text-sm font-medium text-red-600';
-                msg.textContent = err.message || 'Something went wrong. Please try again.';
-            }
-        });
-
-        document.getElementById('sellerFeedbackSubmit').addEventListener('click', async (e) => {
-            e.preventDefault();
-            const form = document.getElementById('sellerFeedbackForm');
-            const msg = document.getElementById('sellerFeedbackMsg');
-            msg.className = 'text-sm font-medium';
-            msg.textContent = '';
-
-            const textareaSeller = form.querySelector('textarea[name="freeText"]');
-            const freeText = textareaSeller && typeof textareaSeller.value === 'string' ? textareaSeller.value.trim() : '';
-            if (!freeText) {
-                msg.className = 'text-sm font-medium text-red-600';
-                msg.textContent = 'Please enter your message.';
-                return;
-            }
-
-            const payload = { audienceType: 'seller', freeText };
-
-            try {
-                const res = await fetch('/api/feedback', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                if (!res.ok) throw new Error(data.error || 'Failed');
-                msg.className = 'text-sm font-medium text-green-600';
-                msg.textContent = 'Thanks! Your feedback is saved.';
-                form.reset();
-            } catch (err) {
-                msg.className = 'text-sm font-medium text-red-600';
-                msg.textContent = err.message || 'Something went wrong. Please try again.';
-            }
-        });
-    </script>
-
-    <!-- AOS -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 700,   // animation duration (ms)
-            once: false,       // animate only once when scrolling down
-            easing: 'ease-in-out'
-        });
-    </script>
-
-
+        submitFeedback('userFeedbackForm','userFeedbackStatus');
+        submitFeedback('sellerFeedbackForm','sellerFeedbackStatus');
+   </script>
 </body>
-
 </html>

@@ -1,0 +1,136 @@
+/* Light Theme Overrides for Nazdeeki (matches warm cream + orange brand) */
+
+/* Scope all overrides to body.light-theme so other pages can opt-in */
+body.web3-theme.light-theme {
+  /* Base surfaces */
+  --primary-bg: #FFF4EA;               /* warm cream */
+  --secondary-bg: #FFFFFF;             /* cards/surfaces */
+  --accent-bg: #FFECDD;                /* soft accent background */
+
+  /* Glassmorphism on light */
+  --glass-bg: rgba(255, 255, 255, 0.70);
+  --glass-border: rgba(17, 24, 39, 0.08);
+
+  /* Brand gradients tuned to orange family */
+  --web3-gradient: linear-gradient(135deg, #FF7A18 0%, #FF9A3C 50%, #FFC26C 100%);
+  --neon-gradient: linear-gradient(90deg, #FF7A18 0%, #FF9A3C 50%, #FFD08A 100%);
+
+  background: var(--primary-bg);
+  color: #1F2937; /* default dark text */
+}
+
+/* Background visuals */
+body.web3-theme.light-theme .particles-container { opacity: 0.20; }
+body.web3-theme.light-theme .grid-overlay {
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(255, 146, 43, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 146, 43, 0.15) 1px, transparent 1px);
+}
+
+/* Navigation */
+body.web3-theme.light-theme .glassmorphic-nav {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid var(--glass-border);
+}
+body.web3-theme.light-theme .nav-link { color: rgba(17, 24, 39, 0.80); }
+body.web3-theme.light-theme .nav-link:hover { color: #111827; }
+body.web3-theme.light-theme .connection-indicator {
+  color: rgba(17, 24, 39, 0.90);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+}
+
+/* Cards / glass surfaces */
+body.web3-theme.light-theme .glassmorphic {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: #1F2937;
+}
+
+/* Headings */
+body.web3-theme.light-theme h1,
+body.web3-theme.light-theme h2,
+body.web3-theme.light-theme h3,
+body.web3-theme.light-theme h4,
+body.web3-theme.light-theme h5,
+body.web3-theme.light-theme h6 { color: #111827; }
+body.web3-theme.light-theme .section-title,
+body.web3-theme.light-theme .service-title,
+body.web3-theme.light-theme .feature-card h3,
+body.web3-theme.light-theme .step-content h3,
+body.web3-theme.light-theme .feedback-form h3,
+body.web3-theme.light-theme .link-group h4,
+body.web3-theme.light-theme .mission-title { color: #111827; }
+body.web3-theme.light-theme .title-accent { color: #111827; }
+
+/* Body copy / subtle text */
+body.web3-theme.light-theme p,
+body.web3-theme.light-theme .hero-subtitle,
+body.web3-theme.light-theme .section-subtitle,
+body.web3-theme.light-theme .feature-card p,
+body.web3-theme.light-theme .service-description,
+body.web3-theme.light-theme .cta-text,
+body.web3-theme.light-theme .feedback-form p,
+body.web3-theme.light-theme .mission-description,
+body.web3-theme.light-theme .link-group a,
+body.web3-theme.light-theme .footer-bottom { color: rgba(17, 24, 39, 0.80); }
+
+/* Inputs */
+body.web3-theme.light-theme .web3-input {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--glass-border);
+  color: #111827;
+  caret-color: #FF7A18;
+}
+body.web3-theme.light-theme .web3-input::placeholder { color: rgba(17, 24, 39, 0.50); }
+body.web3-theme.light-theme .web3-input:focus {
+  border-color: #FF9A3C;
+  box-shadow: 0 0 0 4px rgba(255, 154, 60, 0.20);
+  background: #ffffff;
+}
+
+/* Buttons inherit gradient; keep white text */
+body.web3-theme.light-theme .web3-button { color: #ffffff; }
+
+/* Counter / blockchain widgets */
+body.web3-theme.light-theme .block-height { color: rgba(17, 24, 39, 0.60); }
+body.web3-theme.light-theme .counter-label { color: rgba(17, 24, 39, 0.65); }
+body.web3-theme.light-theme .counter-hash { color: rgba(17, 24, 39, 0.65); }
+body.web3-theme.light-theme .hash-value { color: #FF7A18; }
+body.web3-theme.light-theme .progress-bar { background: rgba(17, 24, 39, 0.10); }
+
+/* Form features text under the button */
+body.web3-theme.light-theme .feature-item {
+  color: rgba(17, 24, 39, 0.80);
+}
+body.web3-theme.light-theme .feature-icon {
+  color: #FF7A18;
+}
+
+/* Footer */
+body.web3-theme.light-theme .footer {
+  border-top: 1px solid var(--glass-border);
+}
+body.web3-theme.light-theme .link-group a:hover { color: #111827; }
+
+/* Misc */
+body.web3-theme.light-theme .divider { color: rgba(17, 24, 39, 0.55); }
+body.web3-theme.light-theme .divider span { background: var(--primary-bg); }
+
+/* Feedback textareas in light theme */
+body.web3-theme.light-theme .feedback-form textarea {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--glass-border);
+  color: #111827;
+}
+body.web3-theme.light-theme .feedback-form textarea::placeholder {
+  color: rgba(17, 24, 39, 0.50);
+}
+body.web3-theme.light-theme .feedback-form textarea:focus {
+  border-color: #FF9A3C;
+  box-shadow: 0 0 0 4px rgba(255, 154, 60, 0.20);
+  background: #ffffff;
+}
+
+
