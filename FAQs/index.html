@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSV8DZTE4D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-YSV8DZTE4D');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazdeeki</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../Assets/NTS Favicon.png" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body class="bg-orange-50 text-black">
+
+    <!--Desktop & Tablet Navbar -->
+    <nav class="hidden md:block sticky top-0 backdrop-blur-sm bg-orange/10 z-999">
+        <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <a href="/">
+                    <img src="../Assets/nazdeeki logo.png" alt="Logo" class="w-40 object-contain">
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex space-x-8 text-lg text-gray-600 ">
+                <a href="/" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Home</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Home</span>
+                    </div>
+                </a>
+                <a href="/#services" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Services</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Services</span>
+                    </div>
+                </a>
+                <!-- <a href="faqandpricing.html#pricing" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Pricing</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Pricing</span>
+                    </div>
+                </a> -->
+                <a href="/FAQs" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">FAQ</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">FAQ</span>
+                    </div>
+                </a>
+                <a href="/Contact" class="hover:text-orange-500 transition-colors duration-300">
+                    <div class="nav-link relative overflow-hidden h-6">
+                        <span class="nav-link-text nav-link-top block pb-1">Contact</span>
+                        <span class="nav-link-text nav-link-bottom block absolute top-full left-0">Contact</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navbar -->
+    <nav
+        class="md:hidden w-full mx-auto px-4 py-2  flex items-center justify-between shadow-lg z-50 bg-orange-50 fixed ">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+            <img src="./Assets/nazdeeki logo.png" alt="Logo" class=" w-40 object-contain">
+        </div>
+        <!-- Mobile Hamburger Button (visible on small screens) -->
+        <div class="flex md:hidden">
+            <button id="menu-toggle" class="text-black focus:outline-none">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Panel -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white flex-col items-center justify-center hidden z-40">
+        <div class="absolute top-4 right-4">
+            <!-- Close button (same as icon toggle) -->
+            <button id="close-panel" class="text-black focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="flex flex-col items-center justify-center h-full space-y-8  text-xl font-medium">
+            <a href="index.html" class="hover:text-orange-600">Home</a>
+            <a href="index.html#services" class="hover:text-orange-600">Services</a>
+            <!-- <a href="faqandpricing.html#pricing" class="hover:text-orange-600">Pricing</a> -->
+            <a href="faqandpricing.html" class="hover:text-orange-600">FAQ</a>
+            <a href="contactus.html" class="hover:text-orange-600">Contact</a>
+
+            <hr class="w-2/3 border-t mt-4 border-gray-300" />
+
+            <p class="text-center text-base text-gray-600 px-4 italic">
+                “Good food is the foundation of genuine happiness.” - Auguste Escoffier
+            </p>
+        </div>
+    </div>
+
+
+    <section class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Frequently Asked Questions</h2>
+            <p class="text-center text-gray-600 mb-12">Get answers to common questions about our platform and services
+            </p>
+
+            <div class="space-y-4">
+                <!-- FAQ Item -->
+                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                        How do I list my food business on your platform?
+                        <span
+                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-700 leading-relaxed">
+                        You can register your food business by clicking the "Get Started" button on the homepage and
+                        filling out your business details. Our team will verify and activate your listing.
+                    </p>
+                </details>
+
+                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                        Can I receive orders through WhatsApp?
+                        <span
+                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-700 leading-relaxed">
+                        Yes! With our Professional and Enterprise plans, you can enable WhatsApp order alerts and
+                        communicate directly with your customers.
+                    </p>
+                </details>
+
+                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                        What payment options are supported?
+                        <span
+                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-700 leading-relaxed">
+                        We support all major UPI apps, credit/debit cards, and wallets. You can also choose to enable
+                        cash on delivery for local orders.
+                    </p>
+                </details>
+
+                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                        Is there a free trial available?
+                        <span
+                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-700 leading-relaxed">
+                        Yes, we offer a 7-day free trial with the Starter plan features so you can explore our platform
+                        risk-free before subscribing.
+                    </p>
+                </details>
+
+                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                        Can I upgrade or downgrade my plan anytime?
+                        <span
+                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                    </summary>
+                    <p class="mt-4 text-gray-700 leading-relaxed">
+                        Absolutely. You can manage your subscription from your dashboard and change your plan at any
+                        time based on your business needs.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 
+    <section id="pricing" class="py-20 bg-gradient-to-br from-orange-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">Choose Your Plan</h2>
+            <p class="text-gray-600 mb-12 text-lg">Flexible pricing to grow your food business</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-200 hover:shadow-xl transition">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Starter</h3>
+                    <p class="text-4xl font-bold text-orange-500 mb-4">₹999<span
+                            class="text-base text-gray-500 font-medium">/month</span></p>
+                    <p class="text-gray-600 mb-6">Perfect for small food stalls or home kitchens starting online</p>
+                    <ul class="text-left space-y-3 text-gray-700 mb-6">
+                        <li>✅ Basic listing on platform</li>
+                        <li>✅ Order & takeaway support</li>
+                        <li>✅ Basic analytics</li>
+                    </ul>
+                    <button class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition">Get
+                        Started</button>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-orange-500 scale-105">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Professional</h3>
+                    <p class="text-4xl font-bold text-orange-500 mb-4">₹2,499<span
+                            class="text-base text-gray-500 font-medium">/month</span></p>
+                    <p class="text-gray-600 mb-6">Best for restaurants & cafes aiming to expand online presence</p>
+                    <ul class="text-left space-y-3 text-gray-700 mb-6">
+                        <li>✅ Featured listings</li>
+                        <li>✅ Delivery integration</li>
+                        <li>✅ Reviews & ratings support</li>
+                        <li>✅ WhatsApp order alerts</li>
+                    </ul>
+                    <button
+                        class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition">Choose
+                        Plan</button>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-200 hover:shadow-xl transition">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Enterprise</h3>
+                    <p class="text-4xl font-bold text-orange-500 mb-4">Custom</p>
+                    <p class="text-gray-600 mb-6">Tailored solutions for food chains & franchises</p>
+                    <ul class="text-left space-y-3 text-gray-700 mb-6">
+                        <li>✅ Custom dashboard</li>
+                        <li>✅ Bulk orders & catering tools</li>
+                        <li>✅ Priority support</li>
+                        <li>✅ Dedicated account manager</li>
+                    </ul>
+                    <button
+                        class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition">Contact
+                        Us</button>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-orange-50 text-gray-600 text-sm px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-2 md:mb-0">&copy; <a href="https://www.nagarjunatechsolutions.com"></a>Nagarjuna Tech Solutions Private Limited</a></div>
+        <div class="flex gap-4">
+            <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+            <a href="cookies.html" class="hover:underline">Cookies</a>
+            <a href="termsandconditions.html" class="hover:underline">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <!-- JS for menu toggle -->
+    <script>
+        const toggleBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const closePanel = document.getElementById('close-panel');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        closePanel.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        });
+    </script>
+
+
+</body>
+
+</html>

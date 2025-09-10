@@ -723,14 +723,16 @@
   
   /* Hero Visual */
   .hero-visual {
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     position: relative;
   }
   
   .floating-card {
-    position: relative;
+    position: sticky;
+    top: 30%;
     width: 400px;
     height: 300px;
     background: var(--glass-bg);
