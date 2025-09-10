@@ -13,8 +13,13 @@
     <title>Nazdeeki</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="../Assets/NTS Favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../light-theme.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../Assets/NTS Favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Assets/NTS Favicon.png">
+    <link rel="shortcut icon" href="../Assets/NTS Favicon.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,10 +34,39 @@
 
 </head>
 
-<body class="bg-orange-50 text-black">
+<body class="web3-theme light-theme">
+
+    <!-- Particle Background -->
+    <div id="particles-js" class="particles-container"></div>
+    
+    <!-- Animated Grid Background -->
+    <div class="grid-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="glassmorphic-nav" data-aos="fade-down">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="../Assets/nazdeeki logo.png" alt="Nazdeeki Logo" class="logo-img">
+            </div>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="primaryNav">
+                <span></span><span></span><span></span>
+            </button>
+            
+            <div class="nav-links" id="primaryNav">
+                <div class="web3-status mobile-only-status">
+                    <div class="connection-indicator"><div class="pulse-dot"></div><span>Network Active</span></div>
+                </div>
+                <a href="../index.html#services" class="nav-link"><span class="nav-text">Services</span><div class="nav-hover-effect"></div></a>
+                <a href="../index.html#features" class="nav-link"><span class="nav-text">Features</span><div class="nav-hover-effect"></div></a>
+                <a href="../FAQs/" class="nav-link"><span class="nav-text">FAQ</span><div class="nav-hover-effect"></div></a>
+                <a href="../Contact/" class="nav-link"><span class="nav-text">Contact</span><div class="nav-hover-effect"></div></a>
+            </div>
+            
+        </div>
+    </nav>
 
     <!--Desktop & Tablet Navbar -->
-    <nav class="hidden md:block sticky top-0 backdrop-blur-sm bg-orange/10 z-999">
+    <nav style="display:none" class="hidden md:block sticky top-0 backdrop-blur-sm bg-orange/10 z-999">
         <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
             <!-- Logo -->
@@ -79,11 +113,11 @@
     </nav>
 
     <!-- Mobile Navbar -->
-    <nav
+    <nav style="display:none"
         class="md:hidden w-full mx-auto px-4 py-2  flex items-center justify-between shadow-lg z-50 bg-orange-50 fixed ">
         <!-- Logo -->
         <div class="flex items-center space-x-2">
-            <img src="./Assets/nazdeeki logo.png" alt="Logo" class=" w-40 object-contain">
+            <img src="../Assets/nazdeeki logo.png" alt="Logo" class=" w-40 object-contain">
         </div>
         <!-- Mobile Hamburger Button (visible on small screens) -->
         <div class="flex md:hidden">
@@ -113,11 +147,11 @@
         </div>
 
         <div class="flex flex-col items-center justify-center h-full space-y-8  text-xl font-medium">
-            <a href="index.html" class="hover:text-orange-600">Home</a>
-            <a href="index.html#services" class="hover:text-orange-600">Services</a>
+            <a href="../index.html" class="hover:text-orange-600">Home</a>
+            <a href="../index.html#services" class="hover:text-orange-600">Services</a>
             <!-- <a href="faqandpricing.html#pricing" class="hover:text-orange-600">Pricing</a> -->
-            <a href="faqandpricing.html" class="hover:text-orange-600">FAQ</a>
-            <a href="contactus.html" class="hover:text-orange-600">Contact</a>
+            <a href="../FAQs/" class="hover:text-orange-600">FAQ</a>
+            <a href="../Contact/" class="hover:text-orange-600">Contact</a>
 
             <hr class="w-2/3 border-t mt-4 border-gray-300" />
 
@@ -128,69 +162,68 @@
     </div>
 
 
-    <section class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4">Frequently Asked Questions</h2>
-            <p class="text-center text-gray-600 mb-12">Get answers to common questions about our platform and services
-            </p>
+    <section class="features-section" id="faq">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-accent">Frequently Asked</span>
+                    <span class="web3-gradient">Questions</span>
+                </h2>
+                <p class="section-subtitle">Get answers to common questions about our platform and services</p>
+            </div>
 
             <div class="space-y-4">
                 <!-- FAQ Item -->
-                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
-                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                <details class="group glassmorphic p-6 rounded-xl">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
                         How do I list my food business on your platform?
-                        <span
-                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        <span class="ml-2 group-open:rotate-180 transition-transform duration-300">▼</span>
                     </summary>
-                    <p class="mt-4 text-gray-700 leading-relaxed">
+                    <p class="mt-4">
                         You can register your food business by clicking the "Get Started" button on the homepage and
                         filling out your business details. Our team will verify and activate your listing.
                     </p>
                 </details>
 
-                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
-                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                <details class="group glassmorphic p-6 rounded-xl">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
                         Can I receive orders through WhatsApp?
-                        <span
-                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        <span class="ml-2 group-open:rotate-180 transition-transform duration-300">▼</span>
                     </summary>
-                    <p class="mt-4 text-gray-700 leading-relaxed">
+                    <p class="mt-4">
                         Yes! With our Professional and Enterprise plans, you can enable WhatsApp order alerts and
                         communicate directly with your customers.
                     </p>
                 </details>
 
-                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
-                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                <details class="group glassmorphic p-6 rounded-xl">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
                         What payment options are supported?
-                        <span
-                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        <span class="ml-2 group-open:rotate-180 transition-transform duration-300">▼</span>
                     </summary>
-                    <p class="mt-4 text-gray-700 leading-relaxed">
+                    <p class="mt-4">
                         We support all major UPI apps, credit/debit cards, and wallets. You can also choose to enable
                         cash on delivery for local orders.
                     </p>
                 </details>
 
-                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
-                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                <details class="group glassmorphic p-6 rounded-xl">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
                         Is there a free trial available?
-                        <span
-                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        <span class="ml-2 group-open:rotate-180 transition-transform duration-300">▼</span>
                     </summary>
-                    <p class="mt-4 text-gray-700 leading-relaxed">
+                    <p class="mt-4">
                         Yes, we offer a 7-day free trial with the Starter plan features so you can explore our platform
                         risk-free before subscribing.
                     </p>
                 </details>
 
-                <details class="group bg-orange-50 p-6 rounded-xl shadow-md">
-                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium text-gray-800">
+                <details class="group glassmorphic p-6 rounded-xl">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
                         Can I upgrade or downgrade my plan anytime?
-                        <span
-                            class="ml-2 text-orange-500 group-open:rotate-180 transition-transform duration-300">▼</span>
+                        <span class="ml-2 group-open:rotate-180 transition-transform duration-300">▼</span>
                     </summary>
-                    <p class="mt-4 text-gray-700 leading-relaxed">
+                    <p class="mt-4">
                         Absolutely. You can manage your subscription from your dashboard and change your plan at any
                         time based on your business needs.
                     </p>
@@ -261,34 +294,64 @@
 
 
     <!-- Footer -->
-    <footer class="bg-orange-50 text-gray-600 text-sm px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-2 md:mb-0">&copy; <a href="https://www.nagarjunatechsolutions.com"></a>Nagarjuna Tech Solutions Private Limited</a></div>
-        <div class="flex gap-4">
-            <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
-            <a href="cookies.html" class="hover:underline">Cookies</a>
-            <a href="termsandconditions.html" class="hover:underline">Terms & Conditions</a>
+    <footer class="footer glassmorphic">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-animation">
+                        <span class="logo-text">Nazdeeki</span>
+                        <div class="logo-tagline">Empowering local flavours through Web3</div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Platform</h4>
+                        <a href="index.html#services">Services</a>
+                        <a href="index.html#features">Features</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Legal</h4>
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="termsandconditions.html">Terms & Conditions</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Connect</h4>
+                        <a href="contactus.html">Contact Us</a>
+                        <a href="#community">Community</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <a href="https://www.nagarjunatechsolutions.com"></a>Nagarjuna Tech Solutions Private Limited</a></p>
+                <div class="coming-soon-badge">
+                    <span>Stay tuned, Coming Soon!</span>
+                    <div class="badge-glow"></div>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- JS for menu toggle -->
+    <!-- AOS and Hamburger -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        const toggleBtn = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-        const closePanel = document.getElementById('close-panel');
-
-        toggleBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-
-        closePanel.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            menuIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-        });
+        AOS.init({ duration:800, easing:'ease-out-cubic', once:true, offset:50 });
+        (function(){
+            const btn = document.getElementById('hamburgerBtn');
+            const nav = document.getElementById('primaryNav');
+            if(btn && nav){
+                btn.addEventListener('click', ()=>{
+                    const isOpen = nav.classList.toggle('open');
+                    btn.classList.toggle('active', isOpen);
+                    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+                nav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+                    nav.classList.remove('open');
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-expanded','false');
+                }));
+            }
+        })();
     </script>
 
 
